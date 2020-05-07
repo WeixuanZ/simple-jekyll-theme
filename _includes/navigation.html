@@ -1,19 +1,7 @@
 <nav id="navbar">
 <ul>
-    <li><a href="/" {% if page.url == "/" %}style=
-        "border-radius: 5px;
-        border: none;
-        padding: 2px 6px;
-        color: white;
-        background-color: #2a76dd;"
-    {% endif %}>Home</a></li>
-    <li><a href="/about.html" {% if page.url == "/about.html" %}style=
-        "border-radius: 5px;
-        border: none;
-        padding: 2px 6px;
-        color: white;
-        background-color: #2a76dd;"
-    {% endif %}>About</a></li>
-    <li><a href="***REMOVED***">***REMOVED***</a></li>
+    {% for item in site.data.navigation %}
+    <li><a href="{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>{{ item.name }}</a></li>
+    {% endfor %}
 </ul>
 </nav>
