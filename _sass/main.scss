@@ -2,10 +2,10 @@ body{
     background-color: #fff;
     color: #222;
     font-family: 'Source Code Pro', monospace;
-    font-size:16px;
+    font-size: 16px;
     font-weight: 400;
-    line-height:1.6em;
-    margin:0;
+    line-height: 1.6em;
+    margin: 0;
 }
 
 code {
@@ -13,10 +13,31 @@ code {
     text-transform: none; 
 }
 
+iframe {
+    border: none;
+    width: 90%;
+    margin: auto;
+    box-shadow: 0 3px 20px rgba(0,0,0,0.1);
+}
+
+.slides {
+    width: 100%;
+    box-shadow: none;
+    height: 600;
+}
+
+a{
+    color: #222;
+}
+
+a:hover{
+    color: #6ca0e8;
+}
+
 .container{
-    width:60%;
-    margin:auto;
-    overflow:hidden;
+    width: 60%;
+    margin: auto;
+    overflow: hidden;
 }
 
 #main-header {
@@ -47,7 +68,7 @@ code {
     text-decoration: none;
     font-size:18px;
     font-weight: 600;
-    padding-right:15px;
+    padding-right: 15px;
     border-radius: 5px;
     border: none;
     padding: 2px 6px;
