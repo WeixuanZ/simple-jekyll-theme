@@ -8,21 +8,24 @@
         <script src="https://kit.fontawesome.com/FAKIT.js" crossorigin="anonymous"></script>
     </head>
     <body>
-        <div class="container">
-            <header id="main-header">
+        <div id="main-header">
+            <div class="container">
                 <h1>Weixuan Zhang</h1>
-            </header>
+            </div>
+        </div>
+        
+        {% include navigation.html %}
 
-            {% include navigation.html %}
-
-            <hr>
-
+        <div class="container">
             <div>
                 {{ content }}
             </div>
-
             {% include footer.html %}
-
         </div>
+
     </body>
+
+    <!-- gives the HTML time to load before any of the JavaScript loads, which can prevent errors, and speed up website response time -->
+    <script src="/assets/js/navbar.js"></script>
+
 </html>
