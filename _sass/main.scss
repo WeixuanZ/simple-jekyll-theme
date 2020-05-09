@@ -60,6 +60,15 @@ iframe {
     overflow: visible;
 }
 
+@media only screen and (max-width: 1000px) {
+  /* For mobile phones: */
+  .container{
+    width: 95%;
+  }
+}
+
+
+
 .separator{
     margin-top: 60px;
 }
