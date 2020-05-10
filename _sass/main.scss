@@ -6,19 +6,7 @@ body{
     font-weight: 400;
     line-height: 1.6em;
     margin: 0;
-}
-
-.container{
-    width: 60%;
-    margin: auto;
-    overflow: visible;
-}
-
-@media only screen and (max-width: 1000px) {
-  // For mobile phones:
-  .container{
-    width: 90%;
-  }
+    // background-color: #e0e0e0;
 }
 
 h1{
@@ -36,11 +24,16 @@ h3{
     font-weight: 600;
 }
 
-h3{
+h4{
     font-size: 16pt;
     font-weight: 400;
 }
 
+.container{
+    width: 60%;
+    margin: auto;
+    overflow: visible;
+}
 
 code {
     font-family: monospace;
@@ -170,6 +163,13 @@ iframe {
     color: #6ca0e8
 }
 
+#blog-list-mini{
+    // border: solid;
+    // border-radius: 5px;
+    // border-width: 5px;
+    // border-color: #2a76dd;
+}
+
 
 // Footer
 
@@ -177,4 +177,15 @@ iframe {
     margin-top: 60px;
     margin-bottom: 60px;
     font-weight: 300;
+}
+
+
+
+// Mobile
+
+@media only screen and (max-width: 1000px) {
+    .container{
+        width: 90%;
+    }
+    -webkit-text-size-adjust: auto;
 }
