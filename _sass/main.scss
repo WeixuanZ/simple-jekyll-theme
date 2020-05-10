@@ -1,8 +1,8 @@
 body{
     background-color: #fff;
     color: #222;
-    font-family: 'Source Code Pro', monospace;
-    font-size: 16px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 14pt;
     font-weight: 400;
     line-height: 1.6em;
     margin: 0;
@@ -25,7 +25,7 @@ h3{
 }
 
 h4{
-    font-size: 16pt;
+    font-size: 14pt;
     font-weight: 400;
 }
 
@@ -36,7 +36,8 @@ h4{
 }
 
 code {
-    font-family: monospace;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 12pt;
     text-transform: none;
 }
 
@@ -85,8 +86,18 @@ iframe {
 }
 
 #main-header h1{
-    font-weight: 900;
+    // font-family: 'Source Code Pro', monospace;
+    // font-weight: 900;
+    font-family: 'Black Ops One', cursive;
     font-size: 32pt;
+}
+
+#main-header a{
+    text-decoration: none;
+}
+
+#main-header a:hover{
+    color: #222;
 }
 
 
@@ -111,12 +122,12 @@ iframe {
 #navbar a{
     color: #2a76dd;
     text-decoration: none;
-    font-size:18px;
+    font-size: 14pt;
     font-weight: 600;
-    padding-right: 15px;
     border-radius: 5px;
     border: none;
     padding: 2px 6px;
+    margin-right: 10px;
 }
 
 #navbar a:hover{
@@ -151,7 +162,7 @@ iframe {
 }
 
 
-// Blog List
+// Blog
 
 #blog-list a{
     text-decoration: none;
@@ -164,10 +175,25 @@ iframe {
 }
 
 #blog-list-mini{
+    margin: 10px;
+    padding: 2% 5%;
+    border-radius: 10px;
+    border-width: 0px;
+
     // border: solid;
-    // border-radius: 5px;
-    // border-width: 5px;
     // border-color: #2a76dd;
+
+    box-shadow: 9px 9px 16px rgba(0,0,0,0.1), -9px -9px 16px rgba(0,0,0,0.01);
+
+    /* For Neumorphism Effect */
+    // background-color:#E0E5EC;
+    // box-shadow: 9px 9px 16px rgba(163,177,198,0.6), -9px -9px 16px    rgba(255,255,255, 0.5);
+    /* For Neumorphism Effect */
+}
+
+.date{
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 400;
 }
 
 
@@ -176,6 +202,7 @@ iframe {
 #main-footer{
     margin-top: 60px;
     margin-bottom: 60px;
+    font-size: 12pt;
     font-weight: 300;
 }
 

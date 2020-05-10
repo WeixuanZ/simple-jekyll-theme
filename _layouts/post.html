@@ -3,13 +3,13 @@ layout: default
 ---
 
 <h1 class="header">{{ page.title }}</h1>
-<p>{{ page.date | date_to_string }}</p>
+<p class="date">{{ page.date | date_to_string }}</p>
 
 {{ content }}
 
 <div class="separator"></div>
 <div id="blog-list-mini">
-<h1>Latest Posts</h1>
+<h2>Latest Posts</h2>
 
 <ul>
   {% for post in site.posts %}

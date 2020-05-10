@@ -25,7 +25,7 @@ def sieve(n):
 
 <div class="separator"></div>
 <div id="blog-list">
-<h1>Latest Posts</h1>
+<h1>Posts</h1>
 
 <ul>
   {% for post in site.posts %}
