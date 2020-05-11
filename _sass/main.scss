@@ -47,12 +47,12 @@ ul {
     list-style: square;
 }
 
-iframe {
-    border: none;
-    width: 90%;
-    margin: auto;
-    box-shadow: 0 3px 20px rgba(0,0,0,0.1);
-}
+// iframe {
+//     border: none;
+//     width: 90%;
+//     margin: auto;
+//     box-shadow: 0 3px 20px rgba(0,0,0,0.1);
+// }
 
 hr {
     width: 2px;
@@ -244,10 +244,19 @@ button{
 // Footer
 
 #main-footer{
+    color: rgb(116, 129, 141);
     margin-top: 60px;
     margin-bottom: 60px;
     font-size: 12pt;
     font-weight: 300;
+}
+
+#main-footer a{
+    color: rgb(116, 129, 141);
+}
+
+#main-footer a:hover{
+    color: #6ca0e8;
 }
 
 #main-footer i{
