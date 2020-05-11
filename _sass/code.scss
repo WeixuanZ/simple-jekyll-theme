@@ -4,7 +4,7 @@ code {
     text-transform: none;
 }
 
-pre button {
+.code-copy-btn {
     color: rgba(255, 255, 255, 0.3);
     background-color: rgba(255, 255, 255, 0.1);
     height: 30px;
@@ -17,12 +17,12 @@ pre button {
     right: 10px;
 }
 
-pre button:hover {
+.code-copy-btn:hover {
     color: rgba(255, 255, 255, 0.6);
     background-color: rgba(255, 255, 255, 0.3);
 }
 
-pre button:active {
+.code-copy-btn:active {
     color: rgba(255, 255, 255, 0.8);
 }
 
@@ -40,7 +40,7 @@ pre button:active {
   box-shadow: 0 5px 20px rgba(0,0,0,0.3);
   overflow: scroll;
   z-index: 1;
-  // position: relative;
+  position: relative;
 }
 
 .gist pre {
