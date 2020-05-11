@@ -1,4 +1,18 @@
+// inline code
 code {
+    margin: 1px;
+    padding: 3px 6px;
+    border-radius: 3px;
+    font-size: 85%;
+    background-color: rgb(245,247,249);
+}
+
+// code block
+pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
     font-family: 'Source Code Pro', monospace;
     font-size: 12pt;
     text-transform: none;

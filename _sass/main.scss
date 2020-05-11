@@ -54,6 +54,11 @@ iframe {
     box-shadow: 0 3px 20px rgba(0,0,0,0.1);
 }
 
+hr {
+    width: 2px;
+    color: rgb(230,236,241)
+}
+
 th, td {
   padding: 15px;
 }
@@ -211,7 +216,7 @@ button{
 #share-btn{
     position: -webkit-sticky;
     position: fixed;
-    right: 30px;
+    right: 60px;
     bottom: 60px;
     height: 50px;
     width: 50px;
@@ -219,11 +224,19 @@ button{
     border: none;
     color: #fff;
     background-color: #2a76dd;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    box-shadow: 0 0 10px #6ca0e8;
+}
+
+#share-btn i{
+    font-size: 150%;
 }
 
 #share-btn:hover{
     background-color: #6ca0e8;
+}
+
+#share-btn:active{
+    box-shadow: none;
 }
 
 
@@ -248,6 +261,9 @@ button{
 @media only screen and (max-width: 1000px) {
     .container{
         width: 90%;
+    }
+    #share-btn{
+        right: 30px;
     }
     -webkit-text-size-adjust: auto;
 }

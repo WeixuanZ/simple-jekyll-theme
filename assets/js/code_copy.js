@@ -1,16 +1,16 @@
 // get all <code> elements
-var allCodeBlocksElements = $( "code" );
+var allCodeBlocksElements = $( "div.highlighter-rouge" );
 
 allCodeBlocksElements.each(function(i) {
     // add different id for each code block
 
     // target   
     var currentId = "codeblock" + (i + 1);
-    $(this).attr('id', currentId);
+    $("code").attr('id', currentId);
      
     // trigger
     var clipButton = '<button class="code-copy-btn" data-clipboard-target="#' + currentId + '"><i class="fas fa-clone"></i>';
-    $(this).after(clipButton);
+    $("code").after(clipButton);
 });
  
 var clipboard = new ClipboardJS('.code-copy-btn');
