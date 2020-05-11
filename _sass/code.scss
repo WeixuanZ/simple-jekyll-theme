@@ -4,6 +4,10 @@ code {
     text-transform: none;
 }
 
+.highlighter-rouge {
+    position: relative;
+}
+
 .code-copy-btn {
     color: rgba(255, 255, 255, 0.3);
     background-color: rgba(255, 255, 255, 0.1);
@@ -12,9 +16,8 @@ code {
     border: none;
     border-radius: 50%;
     position: absolute;
-    float: left;
-    top: 10px;
-    right: 10px;
+    top: 12px;
+    right: 3%;
 }
 
 .code-copy-btn:hover {
@@ -28,19 +31,18 @@ code {
 
 /* Adjusted to give override background and text colour */
 .highlight pre, pre, .highlight .hll {
-  /*background-color: #49483E;*/
-  background-color: #222;
-  /*border: 1px solid #ccc;*/
-  border: none;
-  width: 95%;
-  margin: auto;
-  padding: 6px 10px;
-  border-radius: 5px;
-  color: #fff;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-  overflow: scroll;
-  z-index: 1;
-  position: relative;
+    /*background-color: #49483E;*/
+    background-color: #222;
+    /*border: 1px solid #ccc;*/
+    border: none;
+    width: 95%;
+    margin: auto;
+    padding: 6px 10px;
+    border-radius: 5px;
+    color: #fff;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    overflow: scroll;
+    z-index: 1;
 }
 
 .gist pre {

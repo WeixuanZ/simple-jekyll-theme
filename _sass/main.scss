@@ -54,6 +54,17 @@ iframe {
     box-shadow: 0 3px 20px rgba(0,0,0,0.1);
 }
 
+th, td {
+  padding: 15px;
+}
+
+caption{
+    font-size: 13pt;
+}
+
+button{
+    transition: 0.3s;
+}
 
 
 .separator{
