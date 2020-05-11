@@ -8,9 +8,9 @@ code {
     position: relative;
 }
 
-.code-copy-btn {
-    color: rgba(255, 255, 255, 0.3);
-    background-color: rgba(255, 255, 255, 0.1);
+.highlight .code-copy-btn {
+    color: rgba(255, 255, 255, 0);
+    background-color: rgba(255, 255, 255, 0);
     height: 30px;
     width: 30px;
     border: none;
@@ -20,12 +20,24 @@ code {
     right: 3%;
 }
 
-.code-copy-btn:hover {
+@media only screen and (max-width: 1000px) {
+    .highlight .code-copy-btn {
+        color: rgba(255, 255, 255, 0.3);
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+}
+
+.highlight:hover .code-copy-btn {
+    color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.highlight .code-copy-btn:hover {
     color: rgba(255, 255, 255, 0.6);
     background-color: rgba(255, 255, 255, 0.3);
 }
 
-.code-copy-btn:active {
+.highlight .code-copy-btn:active {
     color: rgba(255, 255, 255, 0.8);
 }
 
