@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: home
 title: Weixuan
 ---
 
@@ -22,18 +22,3 @@ def sieve(n):
     
     return [indx for indx, state in enumerate(primes) if state is True]
 ```
-
-<div class="separator"></div>
-<div id="blog-list">
-<h1 class="header">Posts</h1>
-
-<ul>
-  {% for post in site.posts %}
-    <li>
-      <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-      {{ post.excerpt }}
-    </li>
-  {% endfor %}
-</ul>
-</div>
-
