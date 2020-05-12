@@ -55,8 +55,10 @@ ul {
 // }
 
 hr {
-    width: 2px;
-    color: rgb(230,236,241)
+    border: 0;
+    border-radius: 25%;
+    height: 2px;
+    background-color: rgb(230,236,241);
 }
 
 th, td {
