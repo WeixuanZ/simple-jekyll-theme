@@ -214,7 +214,6 @@ button{
 }
 
 #share-btn{
-    position: -webkit-sticky;
     position: fixed;
     right: 60px;
     bottom: 60px;
@@ -228,6 +227,9 @@ button{
 }
 
 #share-btn i{
+    position: absolute;
+    left: 18px;
+    top: 18px;
     font-size: 150%;
 }
 
@@ -237,6 +239,27 @@ button{
 
 #share-btn:active{
     box-shadow: none;
+}
+
+#share-btn #shared {
+    font-size: 12pt;
+    font-weight: 600;
+    text-align: center;
+    visibility: hidden;
+    display: inline-block;
+    position: relative;
+    top: -50px;
+    left: -85px;
+    width: 200px;
+    color: #2a76dd;
+    border: none;
+    padding: 5px;
+    z-index: 1;
+    transition: 0.3s;
+}
+
+#share-btn:hover #shared {
+    visibility: visible;
 }
 
 
