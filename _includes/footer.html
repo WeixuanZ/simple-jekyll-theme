@@ -1,6 +1,22 @@
 <footer id="main-footer">    
-    <p>Copyright &copy; 2020 W Zhang</p>
+    <p id="copyleft">Copyleft <span style="display: inline-block; transform: rotate(180deg);">&copy;</span> 2020 W Zhang</p>
+    <div id="links">
     <p><a href="***REMOVED***">My GPG public key</a></p>
     <a href="https://github.com/WeixuanZ"><i class="fab fa-github fa-lg"></i></a>
     <a href="***REMOVED***"><i class="fab fa-linkedin fa-lg"></i></a>
+    </div>
 </footer>
+<script type="text/javascript">
+    if (location.href.includes("license") == false) {
+        $( "#main-footer" ).hover(
+            function() {
+                $( "#copyleft" ).fadeOut(150, function() {
+                    $(this).html('<a href="/license.html">License and Privacy Notice</a>').fadeIn(150);
+                });
+            }, function() {
+                $( "#copyleft" ).fadeOut(150, function() {
+                    $(this).html('Copyleft <span style="display: inline-block; transform: rotate(180deg);">&copy;</span> 2020 W Zhang').fadeIn(150);
+                });
+        });
+    };
+</script>

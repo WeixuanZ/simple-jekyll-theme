@@ -1,7 +1,7 @@
 // Colours
 
-$background_color : #fff;
-$text_color       : #222;
+// $background_color : #fff;
+// $text_color       : #222;
 $blue             : #2a76dd;
 $blue_hover       : #6ca0e8;
 $gray_text        : rgb(116, 129, 141);
@@ -14,23 +14,24 @@ $font_code        : 'Source Code Pro', monospace;
 
 // Font Sizes
 
+$Huge             : 32pt;  // main-header
+$huge             : 27pt;  // header
+$LARGE            : 22pt;  // h1
+$Large            : 18pt;  // h2
+$large            : 16pt;  // h3
+
 $normalsize       : 14pt;
 
-$LARGE            : 22pt;
-$Large            : 18pt;
-$large            : 16pt;
 $small            : 13pt;
-$footnotesize     : 12pt;
+$footnotesize     : 12pt;  
 
 
 
 // Universal
 
 body{
-    background-color: #fff;
-    color: #222;
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size: 14pt;
+    font-family: $font_normal;
+    font-size: $normalsize;
     font-weight: 400;
     line-height: 1.6em;
     margin: 0;
@@ -38,22 +39,22 @@ body{
 }
 
 h1{
-    font-size: 22pt;
+    font-size: $LARGE;
     font-weight: 700;
 }
 
 h2{
-    font-size: 18pt;
+    font-size: $Large;
     font-weight: 700;
 }
 
 h3{
-    font-size: 16pt;
+    font-size: $large;
     font-weight: 600;
 }
 
 h4{
-    font-size: 14pt;
+    font-size: $normalsize;
     font-weight: 400;
 }
 
@@ -93,7 +94,7 @@ figure > img {
  }
  
 figcaption {
-   color: rgb(116, 129, 141);
+   color: $gray_text;
  }
 
 th, td {
@@ -106,7 +107,7 @@ caption{
 
 
 blockquote {
-    border-left: 4px solid rgb(230,236,241);
+    border-left: 4px $gray_element;
 }
 
 button{
@@ -117,7 +118,7 @@ hr {
     border: 0;
     border-radius: 25%;
     height: 2px;
-    background-color: rgb(230,236,241);
+    background-color: $gray_element;
 }
 
 .separator{
@@ -131,13 +132,17 @@ hr {
 }
 
 .header {
-    font-size: 27pt;
+    font-size: $huge;
     font-weight: 700;
 }
 
 .date{
-    font-family: 'Source Code Pro', monospace;
+    font-family: $font_code;
     font-weight: 400;
+}
+
+.hint {
+    border-left: 4px $blue;
 }
 
 
@@ -150,7 +155,7 @@ hr {
     
     h1{
         font-family: 'Black Ops One', 'Source Code Pro', sans-serif;
-        font-size: 32pt;
+        font-size: $Huge;
     }
 
     a{
@@ -343,11 +348,19 @@ hr {
 // Mobile
 
 @media only screen and (max-width: 1000px) {
-    .container{
+    #main-header {
+        h1 {
+            font-size: $LARGE;
+        }
+    }
+    .container {
         width: 90%;
     }
     #share-btn{
         right: 30px;
+    }
+    #share-btn:hover{
+        background-color: #2a76dd;
     }
     -webkit-text-size-adjust: auto;
 }
