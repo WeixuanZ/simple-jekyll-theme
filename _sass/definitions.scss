@@ -1,0 +1,47 @@
+// Colours
+
+$background_color : #fff;
+$text_color       : #222;
+$blue             : #2a76dd;
+$blue_hover       : #6ca0e8;
+$gray_text        : rgb(116, 129, 141);
+$gray_element     : rgb(230, 236, 241);
+$gray_light       : rgb(245, 247, 249);
+$red              : rgb(255, 70, 66);
+
+// Fonts
+
+$font_normal      : 'Source Sans Pro', sans-serif;
+$font_code        : 'Source Code Pro', monospace;
+
+// Font Sizes
+
+$Huge             : 32pt;  // main-header
+$huge             : 27pt;  // header
+$LARGE            : 22pt;  // h1
+$Large            : 18pt;  // h2
+$large            : 16pt;  // h3
+
+$normalsize       : 14pt;
+
+$small            : 13pt;
+$footnotesize     : 12pt;
+
+// Mixins
+
+@mixin indented-box {
+    color: $gray_text;
+    padding-left: 10px;
+    margin: 15px 5%;
+    // background-color: $gray_light;
+    // border-radius: 4px;
+}
+
+@mixin float-card {
+    z-index: 2;
+    padding: 2% 5%;
+    border-radius: 10px;
+    border-width: 0px;
+    box-shadow: 9px 9px 16px rgba(0,0,0,0.1), -9px -9px 16px rgba(0,0,0,0.01);
+}
+

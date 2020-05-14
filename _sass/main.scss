@@ -1,34 +1,3 @@
-// Colours
-
-// $background_color : #fff;
-// $text_color       : #222;
-$blue             : #2a76dd;
-$blue_hover       : #6ca0e8;
-$gray_text        : rgb(116, 129, 141);
-$gray_element     : rgb(230, 236, 241);
-$gray_light       : rgb(245, 247, 249);
-$red              : rgb(255, 70, 66);
-
-// Fonts
-
-$font_normal      : 'Source Sans Pro', sans-serif;
-$font_code        : 'Source Code Pro', monospace;
-
-// Font Sizes
-
-$Huge             : 32pt;  // main-header
-$huge             : 27pt;  // header
-$LARGE            : 22pt;  // h1
-$Large            : 18pt;  // h2
-$large            : 16pt;  // h3
-
-$normalsize       : 14pt;
-
-$small            : 13pt;
-$footnotesize     : 12pt;  
-
-
-
 // Universal
 
 body{
@@ -37,6 +6,8 @@ body{
     font-weight: 400;
     line-height: 1.6em;
     margin: 0;
+    background-color: $background_color;
+    color: $text_color;
     // background-color: #e0e0e0;
 }
 
@@ -68,11 +39,11 @@ h4{
 }
 
 a{
-    color: #222;
+    color: $text_color;
 }
 
 a:hover{
-    color: #6ca0e8;
+    color: $blue_hover;
 }
 
 ul {
@@ -113,7 +84,6 @@ button{
 
 hr {
     border: 0;
-    border-radius: 25%;
     height: 2px;
     background-color: $gray_element;
 }
@@ -133,13 +103,9 @@ hr {
     font-weight: 700;
 }
 
-@mixin indented-box {
-    color: $gray_text;
-    padding-left: 10px;
-    margin: 15px 5%;
-    // background-color: $gray_light;
-    // border-radius: 4px;
-}
+
+
+// Indented boxes
 
 blockquote {
     @include indented-box;
@@ -174,7 +140,7 @@ blockquote {
     }
 
     a:hover{
-        color: #222;
+        color: $text_color;
     }
 }
 
@@ -183,7 +149,7 @@ blockquote {
 // Navigation
 
 #navbar{
-    background-color: #fff;
+    background-color: $background_color;
     width: 100%;
     padding-top: 1px;
     padding-bottom: 1px;
@@ -199,7 +165,7 @@ blockquote {
     }
 
     a{
-        color: #2a76dd;
+        color: $blue;
         text-decoration: none;
         font-size: 14pt;
         font-weight: 600;
@@ -215,7 +181,7 @@ blockquote {
         border: none;
         padding: 2px 6px;
         color: #fff;
-        background-color: #6ca0e8;
+        background-color: $blue_hover;
     }
 
     .current{
@@ -223,7 +189,7 @@ blockquote {
         border: none;
         padding: 2px 6px;
         color: #fff;
-        background-color: #2a76dd;
+        background-color: $blue;
     }
 
     .current:hover{
@@ -232,7 +198,7 @@ blockquote {
         border: none;
         padding: 2px 6px;
         color: white;
-        background-color: #2a76dd;
+        background-color: $blue;
     }
 }
 
@@ -245,14 +211,6 @@ blockquote {
 
 
 // Blog
-
-@mixin float-card {
-    z-index: 2;
-    padding: 2% 5%;
-    border-radius: 10px;
-    border-width: 0px;
-    box-shadow: 9px 9px 16px rgba(0,0,0,0.1), -9px -9px 16px rgba(0,0,0,0.01);
-}
 
 #blog-list {
     ul{
@@ -271,7 +229,7 @@ blockquote {
         .card {
             padding: 2% 5%;
             .post-title {
-                color: #2a76dd;
+                color: $blue;
                 font-size: $LARGE;
                 font-weight: 700;
             }
@@ -284,12 +242,12 @@ blockquote {
 
     a:hover{
         text-decoration: none;
-        color: #222;
+        color: $text_color;
         .card{
             @include float-card;
             transition: 0.3s;
             .post-title{
-                color: #6ca0e8;
+                color: $blue_hover;
                 transition: 0.3s;
             }
         }
@@ -318,7 +276,7 @@ blockquote {
     @include float-card;
 
     // border: solid;
-    // border-color: #2a76dd;
+    // border-color: $blue;
 
     /* For Neumorphism Effect */
     // background-color:#E0E5EC;
@@ -335,8 +293,8 @@ blockquote {
     border-radius: 50%;
     border: none;
     color: #fff;
-    background-color: #2a76dd;
-    box-shadow: 0 0 10px #6ca0e8;
+    background-color: $blue;
+    box-shadow: 0 0 10px $blue_hover;
     z-index: 10;
     
     i{
@@ -348,7 +306,7 @@ blockquote {
 }
 
 #share-btn:hover{
-    background-color: #6ca0e8;
+    background-color: $blue_hover;
 }
 
 #share-btn:active{
@@ -365,7 +323,7 @@ blockquote {
     top: -50px;
     left: -85px;
     width: 200px;
-    color: #2a76dd;
+    color: $blue;
     border: none;
     padding: 5px;
     z-index: 1;
@@ -381,18 +339,18 @@ blockquote {
 // Footer
 
 #main-footer{
-    color: rgb(116, 129, 141);
+    color: $gray_text;
     margin-top: 60px;
     margin-bottom: 60px;
     font-size: 12pt;
     font-weight: 300;
 
     a{
-        color: rgb(116, 129, 141);
+        color: $gray_text;
     }
 
     a:hover{
-        color: #6ca0e8;
+        color: $blue_hover;
     }
 
     i{
@@ -420,7 +378,8 @@ blockquote {
         right: 30px;
     }
     #share-btn:hover{
-        background-color: #2a76dd;
+        background-color: $blue;
     }
     -webkit-text-size-adjust: auto;
 }
+

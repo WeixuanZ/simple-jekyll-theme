@@ -4,7 +4,7 @@ code {
     padding: 3px 6px;
     border-radius: 3px;
     font-size: 85%;
-    background-color: rgb(245,247,249);
+    background-color: $gray_light;
 }
 
 // code block
@@ -58,7 +58,7 @@ pre code {
 /* Adjusted to give override background and text colour */
 .highlight pre, pre, .highlight .hll {
     /*background-color: #49483E;*/
-    background-color: #222;
+    background-color: $background-color;
     /*border: 1px solid #ccc;*/
     border: none;
     width: 95%;
