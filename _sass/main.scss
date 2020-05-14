@@ -5,7 +5,9 @@
 $blue             : #2a76dd;
 $blue_hover       : #6ca0e8;
 $gray_text        : rgb(116, 129, 141);
-$gray_element     : rgb(230,236,241);
+$gray_element     : rgb(230, 236, 241);
+$gray_light       : rgb(245, 247, 249);
+$red              : rgb(255, 70, 66);
 
 // Fonts
 
@@ -105,11 +107,6 @@ caption{
     font-size: 13pt;
 }
 
-
-blockquote {
-    border-left: 4px $gray_element;
-}
-
 button{
     transition: 0.3s;
 }
@@ -136,13 +133,27 @@ hr {
     font-weight: 700;
 }
 
-.date{
-    font-family: $font_code;
-    font-weight: 400;
+@mixin indented-box {
+    color: $gray_text;
+    padding-left: 10px;
+    margin: 15px 5%;
+    // background-color: $gray_light;
+    // border-radius: 4px;
+}
+
+blockquote {
+    @include indented-box;
+    border-left: 4px solid $gray_element;
 }
 
 .hint {
-    border-left: 4px $blue;
+    @include indented-box;
+    border-left: 4px solid $blue;
+}
+
+.danger {
+    @include indented-box;
+    border-left: 4px solid $red;
 }
 
 
@@ -235,33 +246,79 @@ hr {
 
 // Blog
 
+@mixin float-card {
+    z-index: 2;
+    padding: 2% 5%;
+    border-radius: 10px;
+    border-width: 0px;
+    box-shadow: 9px 9px 16px rgba(0,0,0,0.1), -9px -9px 16px rgba(0,0,0,0.01);
+}
+
 #blog-list {
+    ul{
+        list-style: none;
+        padding: 0;
+    }
+
+    li {
+        // width: 95%;
+        // margin: auto;
+        margin-bottom: 20px;
+    }
+
     a{
         text-decoration: none;
-        color: #2a76dd
+        .card {
+            padding: 2% 5%;
+            .post-title {
+                color: #2a76dd;
+                font-size: $LARGE;
+                font-weight: 700;
+            }
+            .post-description {
+                font-size: $small
+            }
+        }
+
     }
 
     a:hover{
         text-decoration: none;
-        color: #6ca0e8
+        color: #222;
+        .card{
+            @include float-card;
+            transition: 0.3s;
+            .post-title{
+                color: #6ca0e8;
+                transition: 0.3s;
+            }
+        }
     }
+}
 
-    ul{
-        // list-style: none;
+.post-meta, .page-meta  {
+    color: $gray_text;
+}
+
+.date{
+    margin-right: 10px;
+}
+
+.tag{
+    font-family: $font_code;
+    i {
+        font-size: 80%;
+        margin-right: 5px;
+        margin-left: 10px;
     }
 }
 
 #blog-list-mini{
-    z-index: 2;
     margin: 10px;
-    padding: 2% 5%;
-    border-radius: 10px;
-    border-width: 0px;
+    @include float-card;
 
     // border: solid;
     // border-color: #2a76dd;
-
-    box-shadow: 9px 9px 16px rgba(0,0,0,0.1), -9px -9px 16px rgba(0,0,0,0.01);
 
     /* For Neumorphism Effect */
     // background-color:#E0E5EC;
@@ -355,6 +412,9 @@ hr {
     }
     .container {
         width: 90%;
+    }
+    #blog-list a .card{
+        @include float-card;
     }
     #share-btn{
         right: 30px;
