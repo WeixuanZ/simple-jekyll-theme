@@ -8,14 +8,42 @@
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTMID');</script>
         <!-- End Google Tag Manager -->
+        <!-- Meta -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>{{ page.title }}</title>
+        <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400&family=Source+Sans+Pro:wght@300;400;600;700&family=Black+Ops+One&display=swap" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
         <script src="https://kit.fontawesome.com/FAKIT.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
+        <!-- Scripts -->
         <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.0.js"></script>
         <script src="/assets/js/clipboard.min.js"></script>
+        <!-- MathJax -->
+        {% if page.mathjax %}
+            <script type="text/javascript">
+                MathJax = {
+                  options: {
+                    renderActions: {
+                      /* add a new named action not to override the original 'find' action */
+                      find_script_mathtex: [10, function (doc) {
+                        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+                          const display = !!node.type.match(/; *mode=display/);
+                          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                          const text = document.createTextNode('');
+                          node.parentNode.replaceChild(text, node);
+                          math.start = {node: text, delim: '', n: 0};
+                          math.end = {node: text, delim: '', n: 0};
+                          doc.math.push(math);
+                        }
+                      }, '']
+                    }
+                  }
+                };
+            </script>
+            <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+            <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        {% endif %}
     </head>
     <body>
         <!-- Google Tag Manager (noscript) -->
@@ -32,7 +60,9 @@
 
         <div class="container">
             <div>
-                {{ content }}
+
+{{ content }}
+
             </div>
             {% include footer.html %}
         </div>

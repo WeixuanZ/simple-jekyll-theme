@@ -13,8 +13,7 @@ layout: default
     <li>
         <a href="{{ post.url }}">
             <div class="card">
-                {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
-                <div class="post-meta"><span class="date">{{ post.date | date: date_format }}</span> &verbar; <span class="tag"><i class="fas fa-tag"></i>{{ post.category }}</span></div>
+                <div class="post-meta"><span class="date">{{ post.date | date: "%b %-d, %Y" }}</span> &verbar; <span class="tag"><i class="fas fa-tag"></i>{{ post.category }}</span></div>
                 <span class="post-title">{{ post.title }}</span><br>
                 <span class="post-description">{{ post.description }}</span>
             </div>
