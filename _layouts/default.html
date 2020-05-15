@@ -73,4 +73,20 @@
     <!-- gives the HTML time to load before any of the JavaScript loads, which can prevent errors, and speed up website response time -->
     <script src="/assets/js/code_copy.js"></script>
 
+    <script type="text/javascript">
+        var maxScroll = 0;
+        var minScroll = 0;
+        function toggle() {
+            console.log(document.documentElement.scrollTop);
+            if (document.documentElement.scrollTop>=0 && minScroll<-40 && maxScroll<80) {
+                $( 'head' ).append('<link rel="stylesheet" type="text/css" href="/assets/css/dark.css">');
+                minScroll = 0;
+                maxScroll = 0;
+            }
+            minScroll = Math.min(document.documentElement.scrollTop, minScroll);
+            maxScroll = Math.max(document.documentElement.scrollTop, maxScroll);
+        }
+        $( window ).on('scroll', toggle);
+    </script>
 </html>
+
