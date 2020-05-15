@@ -228,6 +228,9 @@ blockquote {
         text-decoration: none;
         .card {
             padding: 2% 5%;
+            .post-meta{
+                font-size: $small;
+            }
             .post-title {
                 color: $blue;
                 font-size: $LARGE;
