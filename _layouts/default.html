@@ -51,6 +51,7 @@
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTMID"
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
+        <div id="toggle-indicator"><i class="fas fa-angle-up"></i></div>
         <div id="main-header">
             <div class="container">
                 <a href="/index.html"><h1>Weixuan Zhang</h1></a>
@@ -72,21 +73,6 @@
 
     <!-- gives the HTML time to load before any of the JavaScript loads, which can prevent errors, and speed up website response time -->
     <script src="/assets/js/code_copy.js"></script>
-
-    <script type="text/javascript">
-        var maxScroll = 0;
-        var minScroll = 0;
-        function toggle() {
-            console.log(document.documentElement.scrollTop);
-            if (document.documentElement.scrollTop>=0 && minScroll<-40 && maxScroll<80) {
-                $( 'head' ).append('<link rel="stylesheet" type="text/css" href="/assets/css/dark.css">');
-                minScroll = 0;
-                maxScroll = 0;
-            }
-            minScroll = Math.min(document.documentElement.scrollTop, minScroll);
-            maxScroll = Math.max(document.documentElement.scrollTop, maxScroll);
-        }
-        $( window ).on('scroll', toggle);
-    </script>
+    <script src="/assets/js/dark_toggle.js"></script>
 </html>
 

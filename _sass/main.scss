@@ -126,6 +126,17 @@ blockquote {
 
 // Main Header
 
+#toggle-indicator {
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+    color: $blue;
+    font-weight: 900;
+    font-size: $LARGE;
+}
+
 #main-header {
     padding-top: 20px;
     margin-bottom: -15px;
