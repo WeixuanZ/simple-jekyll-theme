@@ -11,8 +11,8 @@ $red              : rgb(255, 70, 66);
 
 // Fonts
 
-$font_normal      : 'Source Sans Pro', sans-serif;
-$font_code        : 'Source Code Pro', monospace;
+$font_normal      : -apple-system, 'Source Sans Pro', sans-serif;  // BlinkMacSystemFont
+$font_code        : -apple-system-ui-monospace, 'Source Code Pro', monospace;
 
 // Font Sizes
 
