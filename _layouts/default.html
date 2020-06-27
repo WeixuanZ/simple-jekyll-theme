@@ -71,7 +71,9 @@
     </body>
 
     <!-- gives the HTML time to load before any of the JavaScript loads, which can prevent errors, and speed up website response time -->
-    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"s></script>
+    {% if page.content contains "code" or "```" %}
+        <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+    {% endif %}
     <script src="/assets/js/main.js"></script>
 </html>
 

@@ -8,7 +8,6 @@ body{
     margin: 0;
     background-color: $background_color;
     color: $text_color;
-    // background-color: #e0e0e0;
 }
 
 h1{
@@ -225,23 +224,20 @@ blockquote {
 // Blog
 
 #blog-list {
-    ul{
-        list-style: none;
-        padding: 0;
-    }
-
-    li {
-        // width: 95%;
-        // margin: auto;
-        margin-bottom: 20px;
-    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     a{
         text-decoration: none;
+        display: block;
+        width: 100%;
         .card {
             padding: 2% 5%;
-            .post-meta{
-                font-size: $small;
+            margin: 10px auto;
+        }
+        .post-meta{
+            font-size: $small;
             }
             .post-title {
                 color: $blue;
@@ -250,9 +246,7 @@ blockquote {
             }
             .post-description {
                 font-size: $small
-            }
         }
-
     }
 
     a:hover{
@@ -260,11 +254,20 @@ blockquote {
         color: $text_color;
         .card{
             @include float-card;
+            margin-top: 5px;
+            margin-bottom: 15px;
             transition: 0.3s;
-            .post-title{
-                color: $blue_hover;
-                transition: 0.3s;
-            }
+        }
+        .post-title{
+            color: $blue_hover;
+        }
+    }
+
+    a:active {
+        .card {
+            margin: 10px auto;
+            box-shadow: none;
+            transition: none;
         }
     }
 }
@@ -289,14 +292,6 @@ blockquote {
 #blog-list-mini{
     margin: 10px;
     @include float-card;
-
-    // border: solid;
-    // border-color: $blue;
-
-    /* For Neumorphism Effect */
-    // background-color:#E0E5EC;
-    // box-shadow: 9px 9px 16px rgba(163,177,198,0.6), -9px -9px 16px    rgba(255,255,255, 0.5);
-    /* For Neumorphism Effect */
 }
 
 #share-btn{

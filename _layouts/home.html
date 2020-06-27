@@ -5,20 +5,15 @@ layout: default
 {{ content }}
 
 <div class="separator"></div>
-<div id="blog-list">
 <h1 class="header">Posts</h1>
-
-<ul>
-  {% for post in site.posts %}
-    <li>
-        <a href="{{ post.url }}">
-            <div class="card">
-                <div class="post-meta"><span class="date">{{ post.date | date: "%b %-d, %Y" }}</span> &verbar; <span class="tag"><i class="fas fa-tag"></i>{{ post.category }}</span></div>
-                <span class="post-title">{{ post.title }}</span><br>
-                <span class="post-description">{{ post.description }}</span>
-            </div>
-        </a>
-    </li>
-  {% endfor %}
-</ul>
+<div id="blog-list">
+{% for post in site.posts %}
+    <a href="{{ post.url }}">
+        <div class="card">
+            <div class="post-meta"><span class="date">{{ post.date | date: "%b %-d, %Y" }}</span> &verbar; <span class="tag"><i class="fas fa-tag"></i>{{ post.category }}</span></div>
+            <span class="post-title">{{ post.title }}</span><br>
+            <span class="post-description">{{ post.description }}</span>
+        </div>
+    </a>
+{% endfor %}
 </div>
