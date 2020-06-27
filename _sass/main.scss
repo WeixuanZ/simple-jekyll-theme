@@ -102,6 +102,13 @@ hr {
     font-weight: 700;
 }
 
+.no-select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;    
+    -ms-user-select: none;      
+    user-select: none;
+}
 
 
 // Indented boxes
@@ -187,7 +194,11 @@ blockquote {
         transition: 0.3s;
     }
 
-    a:hover{
+    a:hover {
+        background-color: $blue;
+    }
+
+    a:not(.current):hover{
         border-radius: 5px;
         border: none;
         padding: 2px 6px;
@@ -201,15 +212,7 @@ blockquote {
         padding: 2px 6px;
         color: #fff;
         background-color: $blue;
-    }
-
-    .current:hover{
-        color: #fff;
-        border-radius: 5px;
-        border: none;
-        padding: 2px 6px;
-        color: white;
-        background-color: $blue;
+        cursor: default;
     }
 }
 
@@ -371,8 +374,18 @@ blockquote {
 
 
 // Mobile
+@media only screen and (min-width: 500px) and (max-width: 1000px) {
+    #main-header {
+        h1 {
+            font-size: $huge;
+        }
+    }
+    .container {
+        width: 75%;
+    }
+}
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 500px) {
     #main-header {
         h1 {
             font-size: $LARGE;

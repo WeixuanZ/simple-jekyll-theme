@@ -1,8 +1,8 @@
-<nav id="navbar">
+<nav id="navbar" class="no-select">
 <div class="container">
 <ul>
     {% for item in site.data.navigation %}
-    <li><a href="{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>{{ item.name }}</a></li>
+    <li><a {% if page.url == item.link %}class="current"{% else %}href="{{ item.link }}"{% endif %}>{{ item.name }}</a></li>
     {% endfor %}
 </ul>
 </div>

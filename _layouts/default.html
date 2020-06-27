@@ -51,9 +51,9 @@
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
         <div id="toggle-indicator"><i class="fas fa-angle-up"></i></div>
-        <div id="main-header">
+        <div id="main-header" class="no-select">
             <div class="container">
-                <a href="/index.html"><h1>Weixuan Zhang</h1></a>
+                <a {% if page.layout != 'home' %}href="/index.html"{% endif %}><h1>Weixuan Zhang</h1></a>
             </div>
         </div>
         
