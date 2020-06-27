@@ -8,14 +8,13 @@
 </div>
 </nav>
 <script type="text/javascript">
-    // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
-    const nav_init = $( "#navbar" ).offset().top
-    function stick() {
-        if ($( window ).scrollTop() >= nav_init) {
-            $( "#navbar" ).addClass( "sticky" );
+    const navbar = document.querySelector('#navbar')
+    const nav_init = navbar.offsetTop;
+    window.addEventListener('scroll', function() {
+        if (this.scrollY >= nav_init) {
+            navbar.classList.add("sticky");
         } else {
-            $( "#navbar" ).removeClass( "sticky" );
+            navbar.classList.remove("sticky");
         }
-    }
-    $( window ).on('scroll', stick);
+    })
 </script>
