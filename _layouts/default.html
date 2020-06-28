@@ -20,10 +20,8 @@ layout: compress
         <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400&family=Source+Sans+Pro:wght@300;400;600;700&family=Black+Ops+One&text=Weixuan%20Zhang&display=swap" rel="stylesheet">
         <!-- Stylesheets -->
         <link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
-        <script defer src="https://kit.fontawesome.com/FAKIT.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="/assets/css/styles_noncritical.css" media="print" onload="this.media='all'">
         <noscript><link rel="stylesheet" href="/assets/css/styles_noncritical.css"></noscript> <!-- Fallback -->
-        <script defer src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         {% if page.mathjax %}
         <!-- MathJax -->
             <script type="text/javascript">
@@ -75,6 +73,8 @@ layout: compress
 
     </body>
 
+    <script src="https://kit.fontawesome.com/FAKIT.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     {% if page.content contains "code" or "```" %}
         <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
     {% endif %}
