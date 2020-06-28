@@ -18,6 +18,7 @@ pre code {
     text-transform: none;
 }
 
+// https://weblog.west-wind.com/posts/2019/Dec/30/A-HighlightJs-Copy-Code-Badge-Component
 .highlighter-rouge {
     position: relative;
 }
@@ -44,12 +45,12 @@ pre code {
 .highlight:hover .code-copy-btn {
     color: rgba(255, 255, 255, 0.3);
     background-color: rgba(255, 255, 255, 0.1);
-    cursor: copy;
 }
 
 .highlight .code-copy-btn:hover {
     color: rgba(255, 255, 255, 0.6);
     background-color: rgba(255, 255, 255, 0.3);
+    cursor: copy;
 }
 
 .highlight .code-copy-btn:active {

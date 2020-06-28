@@ -114,18 +114,15 @@ hr {
 // Indented boxes
 
 blockquote {
-    @include indented-box;
-    border-left: 4px solid $gray_element;
+    @include indented-box($gray_element);
 }
 
 .hint {
-    @include indented-box;
-    border-left: 4px solid $blue;
+    @include indented-box($blue);
 }
 
 .danger {
-    @include indented-box;
-    border-left: 4px solid $red;
+    @include indented-box($red);
 }
 
 

@@ -1,11 +1,10 @@
 ---
 ---
 /*! 
-© 2020 W Zhang 
-For weixuanz.github.io - Dark Mode
-
-License - https://weixuanz.github.io/license (CC BY-SA 4.0)
-*/
+ * © 2020 W Zhang 
+ * For weixuanz.github.io - Dark Mode
+ * License - https://weixuanz.github.io/license (CC BY-SA 4.0)
+ */
 
 @import "definitions";
 
@@ -16,7 +15,7 @@ $text_color       : rgba(255, 255, 255, 0.87);
 $gray_element     : rgba(255, 255, 255, 0.38);
 $gray_text        : rgba(255, 255, 255, 0.6);
 
-@mixin indented-box {
+@mixin indented-box($_) {
     color: $gray_text;
 }
 
