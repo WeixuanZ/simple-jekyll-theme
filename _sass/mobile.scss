@@ -1,0 +1,33 @@
+// Mobile
+
+@media only screen and (min-width: 500px) and (max-width: 1000px) {
+    #main-header {
+        h1 {
+            font-size: $huge;
+        }
+    }
+    .container {
+        width: 75%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    #main-header {
+        h1 {
+            font-size: $LARGE;
+        }
+    }
+    .container {
+        width: 90%;
+    }
+    #blog-list a .card{
+        @include float-card;
+    }
+    #share-btn{
+        right: 30px;
+    }
+    #share-btn:hover{
+        background-color: $blue;
+    }
+    -webkit-text-size-adjust: auto;
+}
