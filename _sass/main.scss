@@ -73,12 +73,12 @@ th, td {
     padding: 15px;
 }
 
-caption{
+caption {
     font-size: 13pt;
 }
 
-button{
-    transition: 0.3s;
+button {
+    transition: background-color 0.3s;
 }
 
 hr {
@@ -128,18 +128,6 @@ blockquote {
 
 
 // Main Header
-
-#toggle-indicator {
-    position: absolute;
-    top: 10px;
-    width: 100%;
-    margin-top: -10px;
-    text-align: center;
-    z-index: 2;
-    color: $blue;
-    font-weight: 900;
-    font-size: $LARGE;
-}
 
 #main-header {
     padding-top: 40px;
@@ -214,6 +202,33 @@ blockquote {
     position: sticky;
     top: 0;
     box-shadow: 0 12px 12px -12px rgba(0, 0, 0, 0.5);
+}
+
+.hidden {
+    opacity: 0;
+}
+
+#dark-toggle-box {
+    display: none;
+}
+
+#dark-toggle-label {
+    margin-left: auto;
+    margin-right: 10px;
+    transition: all 0.3s;
+    transition-property: opacity, transform;
+    cursor: pointer;
+}
+
+#dark-toggle-box:checked + #dark-toggle-label {
+    transform: rotate(180deg);
+    color: red;
+}
+
+#navbar:hover {
+    #dark-toggle-label {
+        opacity: 1;
+    }
 }
 
 

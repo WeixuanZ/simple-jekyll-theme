@@ -42,35 +42,25 @@ clipboard.on('error', e => {
 });
 
 
-// Dark Toggle
+/* Dark Toggle
+ * Modified from https://www.kooslooijesteijn.net/blog/add-dark-mode-to-website
+ */
 
-let is_dark = window.matchMedia('(prefers-color-scheme)').matches && window.matchMedia("(max-width: 1000px)").matches;
-let maxScroll = 0;
-let minScroll = 0;
-const dark_style = '<link rel="stylesheet" type="text/css" href="/assets/css/dark.css">';
-
-if (is_dark) {
-    $( 'head' ).append(dark_style)      
-}
-
-function toggle() {
-    if (maxScroll < 2 * nav_init) {
-        if (document.documentElement.scrollTop >= 0 && minScroll < -40) {
-            if (is_dark) {
-                $( 'head link' ).last().remove();
-                is_dark = false;
-            } else {
-                $( 'head' ).append(dark_style);
-                is_dark = true;
-            };
-            minScroll = 0;
-            maxScroll = 0;
-        };
-        minScroll = Math.min(document.documentElement.scrollTop, minScroll);
-        maxScroll = Math.max(document.documentElement.scrollTop, maxScroll);
+const toggle_label = document.querySelector('#dark-toggle-label');
+window.addEventListener('scroll', function () {
+    if (this.scrollY >= nav_init) {
+        toggle_label.classList.add('hidden');
     } else {
-        $( '#toggle-indicator' ).remove();
-    };
-};
+        toggle_label.classList.remove('hidden');
+    }
+})
+const checkbox = document.querySelector('#dark-toggle-box');
+checkbox.addEventListener( 'change', function() {
+    if(this.checked) {
+        console.log('checked');
+    } else {
+        console.log('unchecked');
+    }
+});
 
-$( window ).on('scroll', toggle);
+
