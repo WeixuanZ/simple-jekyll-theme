@@ -207,6 +207,7 @@ blockquote {
     position: sticky;
     top: 0;
     box-shadow: 0 12px 12px -12px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 12px 12px -12px var(--dark-shadow1, rgba(0, 0, 0, 0.5));
 }
 
 .hidden {

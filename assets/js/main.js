@@ -92,13 +92,15 @@ function savePref(key, value){
 }
 
 
-function updatePref(newPref, withTransition = false, save = true, override = false){
+function updatePref(newPref, withTransition = true, save = true, override = false){
     const root = document.documentElement
     if ((currentPref() === 'dark' || override) && newPref === 'light') {
         root.classList.remove('theme-dark');
+        navbar.style.background = '#fff';
         updateCheckbox('light');
     } else if ((currentPref() === 'light' || override) && newPref === 'dark') {
         root.classList.add('theme-dark');
+        navbar.style.background = '#121212';
         updateCheckbox('dark');
     }
     if (save) savePref('preference-theme', newPref);
@@ -112,8 +114,14 @@ function hideCheckbox() {
     window.addEventListener('scroll', function () {
         if (this.scrollY >= nav_init) {
             toggle_label.classList.add('hidden');
+            if (currentPref() === 'dark') {
+                navbar.style.background = '#22222280';
+            }
         } else {
             toggle_label.classList.remove('hidden');
+            if (currentPref() === 'dark') {
+                navbar.style.background = '#121212';
+            }
         }
     })
 }
@@ -121,8 +129,11 @@ function hideCheckbox() {
 function syncBetweenTabs(){
     window.addEventListener('storage', (e) => {
         if (e.key === 'preference-theme'){
-            if (e.newValue === 'light') updatePref('light', true, false)
-            else if (e.newValue === 'dark') updatePref('dark', true, false)
+            if (e.newValue === 'light') {
+                updatePref('light', true, false)
+            } else if (e.newValue === 'dark') {
+                updatePref('dark', true, false)
+            }
         }
     })
 }
@@ -131,9 +142,9 @@ function listenToOS(){
     let mediaQueryList = window.matchMedia('(prefers-color-scheme: dark)');
     mediaQueryList.addListener( (m)=> {
         if (m.matches !== true) {
-            updatePref('light', true)
+            updatePref('light')
         } else {
-            updatePref('dark', true)
+            updatePref('dark')
         }
     })
 }

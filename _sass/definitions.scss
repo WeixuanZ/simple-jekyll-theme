@@ -22,8 +22,17 @@ $red              : rgb(255, 70, 66);
     --gray-element    : rgba(255, 255, 255, 0.38);
     --gray-text       : rgba(255, 255, 255, 0.6);
     --float-color     : #222;
-    --dark-shadow1    : rgba(0,0,0,0.5);
-    --dark-shadow2    : rgba(0,0,0,0.1);
+    --dark-shadow1    : #000;
+    --dark-shadow2    : rgba(0,0,0,0.5);
+    --dark-shadow3    : rgba(0,0,0,0.1);
+
+    @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+        #navbar{
+            -webkit-backdrop-filter: saturate(180%) blur(20px) brightness(150%);
+            backdrop-filter: saturate(180%) blur(20px) brightness(150%);
+            // transition: background-color 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
+        }
+    }
 }
 
 
@@ -61,6 +70,6 @@ $footnotesize     : 12pt;
     border-radius: 10px;
     border-width: 0px;
     box-shadow: 9px 9px 16px rgba(0,0,0,0.1), -9px -9px 16px rgba(0,0,0,0.01);
-    box-shadow: 9px 9px 16px var(--dark-shadow1, rgba(0,0,0,0.1)), -9px -9px 16px var(--dark-shadow2, rgba(0,0,0,0.01));
+    box-shadow: 9px 9px 16px var(--dark-shadow2, rgba(0,0,0,0.1)), -9px -9px 16px var(--dark-shadow3, rgba(0,0,0,0.01));
     @include color(background-color, --float-color, #fff);
 }
