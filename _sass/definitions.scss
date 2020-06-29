@@ -1,5 +1,6 @@
 // Colours
 
+// Light theme colors
 $background_color : #fff;
 $text_color       : #222;
 $blue             : #2a76dd;
@@ -8,6 +9,23 @@ $gray_text        : rgb(116, 129, 141);
 $gray_element     : rgb(230, 236, 241);
 $gray_light       : rgb(245, 247, 249);
 $red              : rgb(255, 70, 66);
+
+@mixin color($property, $var, $fallback){
+  #{$property}: $fallback;  // This is a fallback for browsers that don't support the next line.
+  #{$property}: var($var, $fallback);
+}
+
+// Dark theme colors
+.theme-dark{
+    --background-color: #121212;
+    --text-color      : rgba(255, 255, 255, 0.87);
+    --gray-element    : rgba(255, 255, 255, 0.38);
+    --gray-text       : rgba(255, 255, 255, 0.6);
+    --float-color     : #222;
+    --dark-shadow1    : rgba(0,0,0,0.5);
+    --dark-shadow2    : rgba(0,0,0,0.1);
+}
+
 
 // Fonts
 
@@ -27,10 +45,11 @@ $normalsize       : 14pt;
 $small            : 13pt;
 $footnotesize     : 12pt;
 
+
 // Mixins
 
 @mixin indented-box($side-color) {
-    color: $gray_text;
+    @include color(color, --gray-text, $gray_text);
     padding-left: 10px;
     margin: 15px 5%;
     border-left: 4px solid $side-color;
@@ -42,5 +61,6 @@ $footnotesize     : 12pt;
     border-radius: 10px;
     border-width: 0px;
     box-shadow: 9px 9px 16px rgba(0,0,0,0.1), -9px -9px 16px rgba(0,0,0,0.01);
+    box-shadow: 9px 9px 16px var(--dark-shadow1, rgba(0,0,0,0.1)), -9px -9px 16px var(--dark-shadow2, rgba(0,0,0,0.01));
+    @include color(background-color, --float-color, #fff);
 }
-

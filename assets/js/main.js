@@ -54,12 +54,13 @@ window.addEventListener('scroll', function () {
         toggle_label.classList.remove('hidden');
     }
 })
+const root = document.documentElement
 const checkbox = document.querySelector('#dark-toggle-box');
 checkbox.addEventListener( 'change', function() {
     if(this.checked) {
-        console.log('checked');
+        root.classList.add('theme-dark');
     } else {
-        console.log('unchecked');
+        root.classList.remove('theme-dark');
     }
 });
 

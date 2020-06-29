@@ -28,7 +28,7 @@
 
     a:hover{
         text-decoration: none;
-        color: $text_color;
+        @include color(color, --text-color, $text_color);
         .card{
             @include float-card;
             margin-top: 5px;
@@ -50,7 +50,7 @@
 }
 
 .post-meta, .page-meta  {
-    color: $gray_text;
+    @include color(color, --gray-text, $gray_text);
 }
 
 .date{
