@@ -10,6 +10,10 @@ body{
     @include color(color, --text-color, $text_color);
 }
 
+::selection{
+    color: $blue_hover
+}
+
 h1{
     font-size: $LARGE;
     font-weight: 700;
