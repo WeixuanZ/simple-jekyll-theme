@@ -2,74 +2,6 @@
  * For weixuanz.github.io
  */
 
-/* Footer */
-function fadeOutIn(elem, newHTML = undefined, transition = 150){
-    elem.classList.add('hidden');
-    setTimeout(()=>{if (newHTML) elem.innerHTML = newHTML; elem.classList.remove('hidden');}, transition);
-}
-
-(function initializeFooter(){
-    const license_notice = '<a href="/license">License and Privacy Notice</a>';
-    const copyleft = document.querySelector("#copyleft");
-    let hover = false;
-    if (location.href.includes("about")) {
-        copyleft.innerHTML = license_notice;
-    } else if (!location.href.includes("license")) {   
-        const footer = document.querySelector("#main-footer")
-        footer.addEventListener("mouseover", function() {
-            if (!hover) {
-                fadeOutIn(copyleft, license_notice);
-                hover = true;
-            }
-        });
-        footer.addEventListener("mouseleave", function() {
-            fadeOutIn(copyleft, 'Copyleft <span style="display: inline-block; transform: rotate(180deg);">&copy;</span> 2020 W Zhang');
-            hover = false;
-        });
-    };
-}())
-
-
-
-/* Code Copy
- * Modified, from  https://stackoverflow.com/a/48078807/10365842
- */
-const allCodeBlocksElements = document.querySelectorAll("div.highlighter-rouge");
-allCodeBlocksElements.forEach(function(el, i) {
-    let currentId = `codeblock${i + 1}`;
-    el.querySelector('code').setAttribute('id', currentId);
-    let clipButton = document.createElement('button');
-    clipButton.innerHTML = '<i class="fas fa-clone"></i>';
-    clipButton.className = 'code-copy-btn';
-    clipButton.setAttribute('data-clipboard-target', `#${currentId}`);
-    el.querySelector('code').after(clipButton);
-})
-let clipboard = new ClipboardJS('.code-copy-btn');
-
-
-
-/* Share Button */
-function share() {
-    if (navigator.share != undefined) {
-        navigator
-            .share({
-                title: document.querySelector(".header").textContent,
-                text: "Check this out!",
-                url: window.location.href
-            })
-            .then(() => console.log("Shared!"))
-            .catch(e => console.error(e));
-    } else {
-        document.querySelector("#share-btn").setAttribute("data-clipboard-text", window.location.href);
-        new ClipboardJS('#share-btn');
-        document.querySelector("#shared").textContent = "Link Copied";
-    }
-};
-function outFunc() {
-    document.querySelector("#shared").textContent = "";
-}
-
-
 /* Dark Toggle
  * Modified, from https://gist.github.com/kslstn/20f654fd27eb29619040c74fa6526919
  */
@@ -114,17 +46,32 @@ function savePref(key, value){
 
 
 function updatePref(newPref, withTransition = true, save = true, override = false){
-    const root = document.documentElement
+    const root = document.documentElement;
+    const els = elsRequireTransit(['body', '#navbar', '#main-header']);
     if ((currentPref() === 'dark' || override) && newPref === 'light') {
+        if (withTransition) toggleTransition(els);
         root.classList.remove('theme-dark');
         navbar.style.background = '#fff';
         updateCheckbox('light');
+        if (withTransition) setTimeout(()=>{toggleTransition(els, false)}, 1000);
     } else if ((currentPref() === 'light' || override) && newPref === 'dark') {
+        if (withTransition) toggleTransition(els);
         root.classList.add('theme-dark');
         navbar.style.background = '#121212';
         updateCheckbox('dark');
+        if (withTransition) setTimeout(()=>{toggleTransition(els, false)}, 1000);
     }
     if (save) savePref('preference-theme', newPref);
+}
+
+
+function toggleTransition(els, add_transit = 1){
+    els.map(el => {add_transit ? el.classList.add('theme-transit') : el.classList.remove('theme-transit')})
+}
+
+
+function elsRequireTransit(els) {
+    return els.map(el => document.querySelector(el))
 }
 
 
@@ -179,4 +126,73 @@ function listenToCheckbox(){
             updatePref('light', true, true, true);
         }
     })
+}
+
+
+
+/* Footer */
+function fadeOutIn(elem, newHTML = undefined, transition = 150){
+    elem.classList.add('hidden');
+    setTimeout(()=>{if (newHTML) elem.innerHTML = newHTML; elem.classList.remove('hidden');}, transition);
+}
+
+(function initializeFooter(){
+    const license_notice = '<a href="/license">License and Privacy Notice</a>';
+    const copyleft = document.querySelector("#copyleft");
+    let hover = false;
+    if (location.href.includes("about")) {
+        copyleft.innerHTML = license_notice;
+    } else if (!location.href.includes("license")) {   
+        const footer = document.querySelector("#main-footer");
+        footer.addEventListener("mouseover", function() {
+            if (!hover) {
+                fadeOutIn(copyleft, license_notice);
+                hover = true;
+            }
+        });
+        footer.addEventListener("mouseleave", function() {
+            fadeOutIn(copyleft, 'Copyleft <span style="display: inline-block; transform: rotate(180deg);">&copy;</span> 2020 W Zhang');
+            hover = false;
+        });
+    };
+}())
+
+
+
+/* Code Copy
+ * Modified, from  https://stackoverflow.com/a/48078807/10365842
+ */
+const allCodeBlocksElements = document.querySelectorAll("div.highlighter-rouge");
+allCodeBlocksElements.forEach(function(el, i) {
+    let currentId = `codeblock${i + 1}`;
+    el.querySelector('code').setAttribute('id', currentId);
+    let clipButton = document.createElement('button');
+    clipButton.innerHTML = '<i class="fas fa-clone"></i>';
+    clipButton.className = 'code-copy-btn';
+    clipButton.setAttribute('data-clipboard-target', `#${currentId}`);
+    el.querySelector('code').after(clipButton);
+})
+if (allCodeBlocksElements.length > 0) {new ClipboardJS('.code-copy-btn')};
+
+
+
+/* Share Button */
+function share() {
+    if (navigator.share != undefined) {
+        navigator
+            .share({
+                title: document.querySelector(".header").textContent,
+                text: "Check this out!",
+                url: window.location.href
+            })
+            .then(() => console.log("Shared!"))
+            .catch(e => console.error(e));
+    } else {
+        document.querySelector("#share-btn").setAttribute("data-clipboard-text", window.location.href);
+        new ClipboardJS('#share-btn');
+        document.querySelector("#shared").textContent = "Link Copied";
+    }
+}
+function outFunc() {
+    document.querySelector("#shared").textContent = "";
 }

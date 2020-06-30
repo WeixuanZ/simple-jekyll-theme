@@ -1,3 +1,8 @@
+.idea/
+.flowconfig
+.je-project-settings/
+*.sublime-*
+
 # Jekyll
 _site/
 *-cache/
