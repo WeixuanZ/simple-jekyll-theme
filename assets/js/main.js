@@ -3,43 +3,71 @@
  */
 
 /* Footer */
-const license_notice = '<a href="/license">License and Privacy Notice</a>';
-if (location.href.includes("about")) {
-    $( "#copyleft" ).html(license_notice);
-} else if (location.href.includes("license") === false) {
-    $( "#main-footer" ).hover(
-        function() {
-            $( "#copyleft" ).fadeOut(150, function() {
-                $(this).html(license_notice).fadeIn(150);
-            });
-        }, function() {
-            $( "#copyleft" ).fadeOut(150, function() {
-                $(this).html('Copyleft <span style="display: inline-block; transform: rotate(180deg);">&copy;</span> 2020 W Zhang').fadeIn(150);
-            });
-    });
-};
+function fadeOutIn(elem, newHTML = undefined, transition = 150){
+    elem.classList.add('hidden');
+    setTimeout(()=>{if (newHTML) elem.innerHTML = newHTML; elem.classList.remove('hidden');}, transition);
+}
+
+(function initializeFooter(){
+    const license_notice = '<a href="/license">License and Privacy Notice</a>';
+    const copyleft = document.querySelector("#copyleft");
+    let hover = false;
+    if (location.href.includes("about")) {
+        copyleft.innerHTML = license_notice;
+    } else if (!location.href.includes("license")) {   
+        const footer = document.querySelector("#main-footer")
+        footer.addEventListener("mouseover", function() {
+            if (!hover) {
+                fadeOutIn(copyleft, license_notice);
+                hover = true;
+            }
+        });
+        footer.addEventListener("mouseleave", function() {
+            fadeOutIn(copyleft, 'Copyleft <span style="display: inline-block; transform: rotate(180deg);">&copy;</span> 2020 W Zhang');
+            hover = false;
+        });
+    };
+}())
+
 
 
 /* Code Copy
- * Modified, from https://stackoverflow.com/a/48078807/10365842
+ * Modified, from  https://stackoverflow.com/a/48078807/10365842
  */
-let allCodeBlocksElements = $( "div.highlighter-rouge" );
-allCodeBlocksElements.each(function(i) {
+const allCodeBlocksElements = document.querySelectorAll("div.highlighter-rouge");
+allCodeBlocksElements.forEach(function(el, i) {
     let currentId = `codeblock${i + 1}`;
-    $("code").attr('id', currentId);
-    let clipButton = `<button class="code-copy-btn" data-clipboard-target="#${currentId}"><i class="fas fa-clone"></i>`;
-    $("code").after(clipButton);
-});
+    el.querySelector('code').setAttribute('id', currentId);
+    let clipButton = document.createElement('button');
+    clipButton.innerHTML = '<i class="fas fa-clone"></i>';
+    clipButton.className = 'code-copy-btn';
+    clipButton.setAttribute('data-clipboard-target', `#${currentId}`);
+    el.querySelector('code').after(clipButton);
+})
 let clipboard = new ClipboardJS('.code-copy-btn');
-clipboard.on('success', e => {
-    console.log('Action:', e.action);
-    console.log('Text:', e.text);
-});
-clipboard.on('error', e => {
-    console.error('Action:', e.action);
-    console.error('Trigger:', e.trigger);
-    console.log(e);
-});
+
+
+
+/* Share Button */
+function share() {
+    if (navigator.share != undefined) {
+        navigator
+            .share({
+                title: document.querySelector(".header").textContent,
+                text: "Check this out!",
+                url: window.location.href
+            })
+            .then(() => console.log("Shared!"))
+            .catch(e => console.error(e));
+    } else {
+        document.querySelector("#share-btn").setAttribute("data-clipboard-text", window.location.href);
+        new ClipboardJS('#share-btn');
+        document.querySelector("#shared").textContent = "Link Copied";
+    }
+};
+function outFunc() {
+    document.querySelector("#shared").textContent = "";
+}
 
 
 /* Dark Toggle
@@ -59,7 +87,7 @@ clipboard.on('error', e => {
     )
 }())
 
-// Helper functions
+// Helper Functions
 
 function currentPref() {
     return (document.querySelector('#dark-toggle-box').checked) ? 'dark' : 'light';
@@ -70,13 +98,9 @@ function OSPref() {
 }
 
 function storedPref() {
-    const pref = localStorage.getItem('preference-theme')
-    const lastChanged = localStorage.getItem('preference-theme-last-change')
-    let now = new Date()
-    const minutesPassed = (now.getTime() - lastChanged)/(1000*60)
-
-    if (minutesPassed < 120 && pref === "light") return 'light'
-    else if (minutesPassed < 120 && pref === "dark") return 'dark'
+    const pref = localStorage.getItem('preference-theme');
+    if (pref === "light") return 'light'
+    else if (pref === "dark") return 'dark'
     else return undefined
 }
 
@@ -85,10 +109,7 @@ function updateCheckbox(pref) {
 }
 
 function savePref(key, value){
-    let now = new Date();
-    now = now.getTime();
     localStorage.setItem(key, value);
-    localStorage.setItem(key+"-last-change", now);
 }
 
 

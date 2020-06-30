@@ -24,3 +24,18 @@ def sieve(n):
     
     return [indx for indx, state in enumerate(primes) if state is True]
 ```
+
+```javascript
+(function initializeTheme(){
+    syncBetweenTabs()
+    listenToOS()
+    listenToCheckbox()
+    hideCheckbox()
+
+    updatePref(
+        storedPref() ||
+        OSPref(),
+        false
+    )
+}())
+```

@@ -23,27 +23,6 @@ layout: default
 </div>
 {% endif %}
 <button id="share-btn" onclick="share()" onmouseout="outFunc()"><span id="shared"></span><i class="fas fa-share"></i></button>
-<script type="text/javascript">
-    function share() {
-        if (navigator.share != undefined) {
-            navigator
-                .share({
-                    title: $(".header").text(),
-                    text: "Check this out!",
-                    url: window.location.href
-                })
-                .then(() => console.log("Shared!"))
-                .catch(e => console.error(e));
-        } else {
-            $("#share-btn").attr("data-clipboard-text", window.location.href);
-            new ClipboardJS('#share-btn');
-            $("#shared").html("Link Copied");
-        }
-    };
-    function outFunc() {
-        $("#shared").html("");
-    }
-</script>
 
 {% if page.comments %}
     <div class="separator"></div>
