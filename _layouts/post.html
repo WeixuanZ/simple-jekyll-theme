@@ -12,7 +12,7 @@ layout: default
 <div id="blog-list-mini">
     <h2>Latest Posts</h2>
     <ul>
-        {% for post in site.categories.post limit:3 %}
+        {% for post in site.categories.posts limit:3 %}
         {% if post.url != page.url %}
             <li>
                 <a href="{{ post.url }}">{{ post.title }}</a>
@@ -22,7 +22,7 @@ layout: default
     </ul>
 </div>
 {% endif %}
-<button id="share-btn" onclick="share()" onmouseout="outFunc()"><span id="shared"></span><i class="fas fa-share"></i></button>
+<button id="share-btn" fallback-text="Link Copied"><i class="fas fa-share"></i></button>
 
 {% if page.comments %}
     <div class="separator"></div>

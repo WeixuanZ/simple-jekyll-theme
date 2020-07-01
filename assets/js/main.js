@@ -1,4 +1,5 @@
-/* W Zhang
+/**
+ * @preserve W Zhang
  * For weixuanz.github.io
  */
 
@@ -188,11 +189,13 @@ function share() {
             .then(() => console.log("Shared!"))
             .catch(e => console.error(e));
     } else {
-        document.querySelector("#share-btn").setAttribute("data-clipboard-text", window.location.href);
+        const shareButton = document.querySelector("#share-btn");
+        shareButton.setAttribute("data-clipboard-text", location.href);
         new ClipboardJS('#share-btn');
-        document.querySelector("#shared").textContent = "Link Copied";
+        shareButton.classList.add('shared');
+        setTimeout(()=>{shareButton.classList.remove('shared')}, 5000);
     }
 }
-function outFunc() {
-    document.querySelector("#shared").textContent = "";
-}
+
+const shareButton = document.querySelector('#share-btn');
+if (shareButton) shareButton.addEventListener('click', share);

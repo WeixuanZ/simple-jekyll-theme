@@ -86,8 +86,9 @@
     
     i{
         position: absolute;
-        left: 18px;
-        top: 18px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
         font-size: 150%;
     }
 }
@@ -100,23 +101,26 @@
     box-shadow: none;
 }
 
-#share-btn #shared {
+.shared:before {
+    content: attr(fallback-text);
+    color: $blue;
     font-size: 12pt;
     font-weight: 600;
-    text-align: center;
-    visibility: hidden;
     display: inline-block;
+    width: 100px;
     position: relative;
-    top: -50px;
-    left: -85px;
-    width: 200px;
-    color: $blue;
-    border: none;
+    left: 50%;
+    transform: translate(-50%, -50px);
+    text-align: center;
     padding: 5px;
     z-index: 1;
-    transition: 0.3s;
+    opacity: 0;
+    transition: opacity 0.3s;
+    @include color(background-color, --dark-frosted-glass, rgba(245, 247, 249, 0.5));
+    border-radius: 5px;
+    @include frosted-glass;
 }
 
-#share-btn:hover #shared {
-    visibility: visible;
+.shared:hover:before {
+    opacity: 1;
 }

@@ -15,23 +15,29 @@ $red              : rgb(255, 70, 66);
   #{$property}: var($var, $fallback);
 }
 
+@mixin frosted-glass{
+    @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+        -webkit-backdrop-filter: saturate(180%) blur(20px) brightness(150%);
+        backdrop-filter: saturate(180%) blur(20px) brightness(150%);
+        // transition: background-color 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
+    }
+}
+
 // Dark theme colors
 .theme-dark{
-    --background-color: #121212;
-    --text-color      : rgba(255, 255, 255, 0.87);
-    --gray-element    : rgba(255, 255, 255, 0.38);
-    --gray-text       : rgba(255, 255, 255, 0.6);
-    --float-color     : #222;
-    --dark-shadow1    : #000;
-    --dark-shadow2    : rgba(0,0,0,0.5);
-    --dark-shadow3    : rgba(0,0,0,0.1);
+    --background-color   : #121212;
+    --text-color         : rgba(255, 255, 255, 0.87);
+    --gray-element       : rgba(255, 255, 255, 0.38);
+    --gray-text          : rgba(255, 255, 255, 0.6);
+    --float-color        : #222;
+    --dark-shadow1       : #000;
+    --dark-shadow2       : rgba(0,0,0,0.5);
+    --dark-shadow3       : rgba(0,0,0,0.1);
+    --dark-frosted-glass : #22222280;
 
-    @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-        #navbar{
-            -webkit-backdrop-filter: saturate(180%) blur(20px) brightness(150%);
-            backdrop-filter: saturate(180%) blur(20px) brightness(150%);
-            // transition: background-color 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
-        }
+    
+    #navbar{       
+        @include frosted-glass;
     }
 }
 
