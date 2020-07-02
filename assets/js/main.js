@@ -48,7 +48,7 @@ function savePref(key, value){
 
 function updatePref(newPref, withTransition = true, save = true, override = false){
     const root = document.documentElement;
-    const els = elsRequireTransit(['body', '#navbar', '#main-header']);
+    const els = elsRequireTransit(['body', '#navbar', '#main-header', 'code', '#blog-list-mini', '.card']);
     if ((currentPref() === 'dark' || override) && newPref === 'light') {
         if (withTransition) toggleTransition(els);
         root.classList.remove('theme-dark');
@@ -67,12 +67,12 @@ function updatePref(newPref, withTransition = true, save = true, override = fals
 
 
 function toggleTransition(els, add_transit = 1){
-    els.map(el => {add_transit ? el.classList.add('theme-transit') : el.classList.remove('theme-transit')})
+    els.map(el => {add_transit ? el.forEach((e)=>e.classList.add('theme-transit')) : el.forEach((e)=>e.classList.remove('theme-transit'))})
 }
 
 
 function elsRequireTransit(els) {
-    return els.map(el => document.querySelector(el))
+    return els.map(el => document.querySelectorAll(el))
 }
 
 

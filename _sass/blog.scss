@@ -14,11 +14,11 @@
             margin: 10px auto;
         }
         .post-meta{
-            font-size: $small;
+            font-size: $footnotesize;
         }
         .post-title {
             color: $blue;
-            font-size: $LARGE;
+            font-size: $Large;
             font-weight: 700;
         }
         .post-description {
@@ -58,11 +58,21 @@
 }
 
 .tag{
-    font-family: $font_code;
     i {
         font-size: 80%;
         margin-right: 5px;
         margin-left: 10px;
+    }
+    a {
+        @include color(color, --gray-text, $gray_text);
+        display: inline-block;
+    }
+    a:hover {
+        color: $blue_hover;
+    }
+    code {
+        margin: 0 5px;
+        white-space: nowrap;
     }
 }
 

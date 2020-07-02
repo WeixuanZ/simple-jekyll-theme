@@ -2,18 +2,14 @@
 layout: default
 ---
 
-{{ content }}
+{% if page.content.size > 0%}
+    {{ content }}
+    <div class="separator"></div>
+{% endif %}
 
-<div class="separator"></div>
 <h1 class="header">Posts</h1>
 <div id="blog-list">
 {% for post in site.categories.posts %}
-    <a href="{{ post.url }}">
-        <div class="card">
-            <div class="post-meta"><span class="date">{{ post.date | date: "%b %-d, %Y" }}</span> &verbar; <span class="tag"><i class="fas fa-tag"></i>{{ post.tag }}</span></div>
-            <span class="post-title">{{ post.title }}</span><br>
-            <span class="post-description">{{ post.description }}</span>
-        </div>
-    </a>
+    {% include post-card.html %}
 {% endfor %}
 </div>
