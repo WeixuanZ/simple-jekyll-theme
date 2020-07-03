@@ -24,7 +24,7 @@ layout: default
     {% assign sortedtemptags = temptags | split:' ' | sort | reverse %}
     {% for temptag in sortedtemptags %}
       {% assign tagitems = temptag | split: '#' %}
-      <a href="/tag/{{ tagitems[1] }}"><code>{{ tagitems[1] }} ({{ tagitems[2] }})</code></a>
+      <a href="/tag/{{ tagitems[1] }}"><code>{{ tagitems[1] }}({{ tagitems[2] }})</code></a>
     {% endfor %}
     </div>
 </div>
