@@ -120,6 +120,7 @@ hr {
 blockquote {
     border-left: 4px solid $gray_element;
     @include indented-box(var(--gray-element, $gray_element));
+    @include color(color, --gray-text, $gray_text);
 }
 
 .hint {

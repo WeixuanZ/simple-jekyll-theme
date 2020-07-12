@@ -4,7 +4,9 @@ layout: default
 <h1 class="header">{{ page.title }}</h1>
 <div class="page-meta">
     <span class="date">{{ page.date | date: "%b %-d, %Y" }}</span>
-    <span class="tag"><i class="fas fa-tag"></i>{% for tag in page.tags %}<a href="/tag/{{ tag }}"><code>{{ tag }}</code></a>{% endfor %}</span>
+    {% if page.tags.size > 0 %}
+        <span class="tag"><i class="fas fa-tag"></i>{% for tag in page.tags %}<a href="/tags/{{ tag | slugify }}"><code>{{ tag }}</code></a>{% endfor %}</span>
+    {% endif %}
 </div>
 {{ content }}
 {% if site.posts.size > 1 %}

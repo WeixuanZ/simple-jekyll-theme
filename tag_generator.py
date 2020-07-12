@@ -20,7 +20,7 @@ from itertools import takewhile
 def extract_tags(filename):
     with open(filename, 'r', encoding='utf8') as f:
         return list(*map(
-                lambda x: x[4:-1].replace(", ", ",").strip('[] ').split(','),
+                lambda x: x[4:-1].replace(', ', ',').strip('[] ').split(','),
                 filter(
                     lambda x: x[0:4] == 'tag:',
                     takewhile(lambda l: l != '---\n', f.readlines()[1:]),
@@ -30,13 +30,16 @@ def extract_tags(filename):
 def all_extracted_tags(post_dir='_posts/'):
     return {i for x in map(extract_tags, glob.glob(post_dir + '*md')) for i in x}
 
+def slugify(string):
+    return string.translate(str.maketrans({' ': '-', '?': '-', '.': '-', '#': '-'})).strip('-')
+
 def create_tagpage(tag_dir):
     def wrapped(tag):
-        with open(tag_dir + tag + '.md', 'w') as f:
+        with open(tag_dir + slugify(tag) + '.md', 'w') as f:
             f.write('---\nlayout: tagpage\ntitle: \"Tag: {0}\"\ntag: {0}\n---\n'.format(tag))
     return wrapped
 
-def create_all_tagpages(tags, tag_dir='tag/'):
+def create_all_tagpages(tags, tag_dir='tags/'):
     try:
         os.makedirs(tag_dir)
     except FileExistsError:

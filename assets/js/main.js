@@ -139,12 +139,13 @@ function fadeOutIn(elem, newHTML = undefined, transition = 150){
 
 (function initializeFooter(){
     const license_notice = '<a href="/license">License and Privacy Notice</a>';
-    const copyleft = document.querySelector("#copyleft");
+    const footer = document.querySelector("#main-footer");
+    const copyleft = footer.querySelector("#copyleft");
+    const original_notice = copyleft.innerHTML;
     let hover = false;
     if (location.href.includes("about")) {
         copyleft.innerHTML = license_notice;
     } else if (!location.href.includes("license")) {   
-        const footer = document.querySelector("#main-footer");
         footer.addEventListener("mouseover", function() {
             if (!hover) {
                 fadeOutIn(copyleft, license_notice);
@@ -152,7 +153,7 @@ function fadeOutIn(elem, newHTML = undefined, transition = 150){
             }
         });
         footer.addEventListener("mouseleave", function() {
-            fadeOutIn(copyleft, 'Copyleft <span style="display: inline-block; transform: rotate(180deg);">&copy;</span> 2020 W Zhang');
+            fadeOutIn(copyleft, original_notice);
             hover = false;
         });
     };

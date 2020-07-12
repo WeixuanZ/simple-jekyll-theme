@@ -68,7 +68,7 @@ $footnotesize     : 12pt;
 // Mixins
 
 @mixin indented-box($side-color) {
-    @include color(color, --gray-text, $gray_text);
+    @include color(color, --text-color, $text_color);
     padding-left: 10px;
     margin: 15px 5%;
     border-left: 4px solid $side-color;
@@ -79,6 +79,7 @@ $footnotesize     : 12pt;
     padding: 2% 5%;
     border-radius: 10px;
     border-width: 0px;
+    margin: 10px 0;
     box-shadow: 9px 9px 16px rgba(0,0,0,0.1), -9px -9px 16px rgba(0,0,0,0.01);
     box-shadow: 9px 9px 16px var(--dark-shadow2, rgba(0,0,0,0.1)), -9px -9px 16px var(--dark-shadow3, rgba(0,0,0,0.01));
     @include color(background-color, --float-color, #fff);

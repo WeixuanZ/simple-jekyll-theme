@@ -9,23 +9,4 @@ layout: default
 {% endfor %}
 </div>
 
-{% if site.tags.size > 1 %}
-<div class="separator"></div>
-<div id="blog-list-mini">
-    <!-- https://longqian.me/2017/02/09/github-jekyll-tag/ -->
-    <!-- https://stackoverflow.com/questions/13025281/how-to-get-a-sorted-tags-list-in-jekyll -->
-    <h2>All Tags</h2>
-    <div class="tag">
-    {% capture temptags %}
-      {% for tag in site.tags %}
-        {{ tag[1].size | plus: 1000 }}#{{ tag[0] }}#{{ tag[1].size }}
-      {% endfor %}
-    {% endcapture %}
-    {% assign sortedtemptags = temptags | split:' ' | sort | reverse %}
-    {% for temptag in sortedtemptags %}
-      {% assign tagitems = temptag | split: '#' %}
-      <a href="/tag/{{ tagitems[1] }}"><code>{{ tagitems[1] }}({{ tagitems[2] }})</code></a>
-    {% endfor %}
-    </div>
-</div>
-{% endif %}
+{% include tag-cloud.html %}
