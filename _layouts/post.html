@@ -2,16 +2,23 @@
 layout: default
 ---
 <h1 class="header">{{ page.title }}</h1>
-<div class="page-meta">
+<div class="page-meta no-select">
     <span class="date">{{ page.date | date: "%b %-d, %Y" }}</span>
     {% if page.tags.size > 0 %}
         <span class="tag"><i class="fas fa-tag"></i>{% for tag in page.tags %}<a href="/tags/{{ tag | slugify }}"><code>{{ tag }}</code></a>{% endfor %}</span>
     {% endif %}
 </div>
+
+{% if page.toc %}
+    <h2 class="no-select">Table of Contents</h2>
+    {% include toc.html html=content class='no-select' id='toc' skipNoIDs=true h_max=2 %}
+{% endif %}
+
 {{ content }}
+
 {% if site.posts.size > 1 %}
 <div class="separator"></div>
-<div id="blog-list-mini">
+<div id="blog-list-mini" class="no-select">
     <h2>Latest Posts</h2>
     <ul>
         {% for post in site.categories.posts limit:3 %}
@@ -24,6 +31,7 @@ layout: default
     </ul>
 </div>
 {% endif %}
+
 <button id="share-btn" fallback-text="Link Copied"><i class="fas fa-share"></i></button>
 
 {% if page.comments %}

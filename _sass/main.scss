@@ -125,7 +125,7 @@ caption {
 }
 
 // Adjustment for anchor tag positioning with fixed header
-sup[id^="fnref"], li[id^="fn"] {
+:target{
     padding-top: 65px;
     margin-top: -65px;
 }
