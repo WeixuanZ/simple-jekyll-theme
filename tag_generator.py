@@ -19,11 +19,14 @@ from itertools import takewhile
 
 def extract_tags(filename):
     with open(filename, 'r', encoding='utf8') as f:
-        return list(*map(
-                lambda x: x[4:-1].replace(', ', ',').strip('[] ').split(','),
-                filter(
-                    lambda x: x[0:4] == 'tag:',
-                    takewhile(lambda l: l != '---\n', f.readlines()[1:]),
+        return list(filter(
+                lambda x: x != '',
+                *map(
+                    lambda x: x[4:-1].replace(', ', ',').strip('[] ').split(','),
+                    filter(
+                        lambda x: x[0:4] == 'tag:',
+                        takewhile(lambda l: l != '---\n', f.readlines()[1:]),
+                    )
                 )
             ))
 

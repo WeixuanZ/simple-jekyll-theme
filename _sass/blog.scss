@@ -53,6 +53,10 @@
     @include color(color, --gray-text, $gray_text);
 }
 
+.page-meta {
+    font-size: $small;
+}
+
 .date{
     margin-right: 10px;
 }
