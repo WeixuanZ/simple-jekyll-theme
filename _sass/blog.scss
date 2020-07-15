@@ -138,3 +138,35 @@
 .shared:hover:before {
     opacity: 1;
 }
+
+@media only screen and (min-width: 1300px) and (min-height: 500px) {
+    #toc {
+        width: 13%;
+        max-width: 250px;
+        max-height: calc(100% - 300px);
+        position: fixed;
+        right: 2%;
+        top: 100px;
+        font-size: 12pt;
+        @include float-card;
+        padding: 15px;
+        text-overflow: ellipsis;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        a {
+            text-decoration: none;
+        }
+        h2 {
+            font-size: 14pt;
+        }
+        ul {
+            padding-left: 20px;
+            list-style: none;
+        }
+    }
+
+    .active {
+        color: $blue;
+    }
+}
+

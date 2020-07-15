@@ -10,8 +10,10 @@ layout: default
 </div>
 
 {% if page.toc %}
-    <h2 class="no-select">Table of Contents</h2>
-    {% include toc.html html=content class='no-select' id='toc' skipNoIDs=true h_max=2 %}
+    <div id="toc">
+        <h2 class="no-select">Contents</h2>
+        {% include toc.html html=content class='no-select' id='toc-list' skipNoIDs=true h_max=2 %}
+    </div>
 {% endif %}
 
 {{ content }}

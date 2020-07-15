@@ -200,3 +200,43 @@ function share() {
 
 const shareButton = document.querySelector('#share-btn');
 if (shareButton) shareButton.addEventListener('click', share);
+
+
+
+/* Dynamic TOC */
+(function initializeDynamicTOC() {
+    const toc = document.querySelector( '#toc' );
+    const tocItems = Array.from(toc.querySelectorAll( 'li' ));
+    const tocMapping = tocItems.map(function(item) {
+        let anchor = item.querySelector( 'a' );
+        let targetID = anchor.getAttribute( 'href' ).slice(1)
+        let target = document.getElementById(targetID);
+
+        return {
+            listItem: item,
+            anchor: anchor,
+            targetID: targetID,
+            target: target,
+            targetOffset: target.offsetTop
+        };
+    });
+
+    function getCurrentSection(tocMapping) {
+        return tocMapping.reduce((acc, val) => (window.pageYOffset + 70 > val.targetOffset) ? val : acc)
+    };
+
+    let currentSection = {};
+
+    function updateCurrentSecton(newSection) {
+        if (newSection.targetID != currentSection.targetID) {      
+            if (!!currentSection.targetID) {
+                currentSection.anchor.classList.remove('active')
+            }
+            newSection.anchor.classList.add('active')
+            currentSection = newSection;
+        }
+    }
+
+    window.addEventListener('scroll', () => updateCurrentSecton(getCurrentSection(tocMapping)));
+})()
+
