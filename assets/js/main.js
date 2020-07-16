@@ -204,8 +204,8 @@ if (shareButton) shareButton.addEventListener('click', share);
 
 
 /* Dynamic TOC */
-(function initializeDynamicTOC() {
-    const toc = document.querySelector( '#toc' );
+const toc = document.querySelector( '#toc' );
+if (toc) {
     const tocItems = Array.from(toc.querySelectorAll( 'li' ));
     const tocMapping = tocItems.map(function(item) {
         let anchor = item.querySelector( 'a' );
@@ -225,18 +225,22 @@ if (shareButton) shareButton.addEventListener('click', share);
         return tocMapping.reduce((acc, val) => (window.pageYOffset + 70 > val.targetOffset) ? val : acc)
     };
 
-    let currentSection = {};
-
-    function updateCurrentSecton(newSection) {
-        if (newSection.targetID != currentSection.targetID) {      
-            if (!!currentSection.targetID) {
-                currentSection.anchor.classList.remove('active')
+    function sectionUpdaterInit(initialSection = {}) {
+        let currentSection = initialSection;
+        function wrapped(newSection) {
+            if (newSection.targetID != currentSection.targetID) {      
+                if (!!currentSection.targetID) {
+                    currentSection.anchor.classList.remove('active')
+                }
+                newSection.anchor.classList.add('active')
+                currentSection = newSection;
             }
-            newSection.anchor.classList.add('active')
-            currentSection = newSection;
         }
+        return wrapped
     }
 
-    window.addEventListener('scroll', () => updateCurrentSecton(getCurrentSection(tocMapping)));
-})()
+    const sectionUpdater = sectionUpdaterInit();
+    window.addEventListener('scroll', () => sectionUpdater(getCurrentSection(tocMapping)));
+}
+
 

@@ -56,18 +56,16 @@ layout: compress
         <!-- End Google Tag Manager (noscript) -->
         <div id="main-header" class="no-select">
             <div class="container">
-                <a {% if page.layout != 'home' %}href="/index.html"{% endif %}><h1>Weixuan Zhang</h1></a>
+                <a {% if page.layout != 'home' %}href="/index.html"{% endif %}>Weixuan Zhang</a>
             </div>
         </div>
         
         {% include navigation.html %}
 
         <div class="container">
-            <div>
 
-{{ content }}
+            {{ content }}
 
-            </div>
             {% include footer.html %}
         </div>
 

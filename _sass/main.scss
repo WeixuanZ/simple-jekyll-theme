@@ -125,7 +125,18 @@ caption {
 }
 
 // Adjustment for anchor tag positioning with fixed header
-:target{
+:target[id^="fn"]{
+    padding-top: 65px;
+    margin-top: -65px;
+    color: $blue;
+    a {
+        color: $blue;
+    }
+}
+
+:target:not([id^="fn"]):before{
+    content: "";
+    display: block;
     padding-top: 65px;
     margin-top: -65px;
 }
@@ -193,15 +204,12 @@ blockquote {
     padding-top: 40px;
     padding-bottom: 10px;
     cursor: default;
-    
-    h1{
-        font-family: 'Black Ops One', 'Source Code Pro', sans-serif;
-        font-size: $Huge;
-        margin: 0;
-    }
 
     a{
         text-decoration: none;
+        font-family: 'Black Ops One', 'Source Code Pro', sans-serif;
+        font-size: $Huge;
+        margin: 0;
     }
 
     a:hover{
@@ -323,12 +331,8 @@ blockquote {
     transition: opacity 0.15s;
 }
 
-#key:after{
-    content: "***REMOVED***";
-    display: none;
-}
-
 #key:hover:after{
     display: inline-block;
+    content: "***REMOVED***";
 }
 
