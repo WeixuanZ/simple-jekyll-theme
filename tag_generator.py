@@ -22,7 +22,7 @@ def extract_tags(filename):
         return list(filter(
                 lambda x: x != '',
                 *map(
-                    lambda x: x[4:-1].replace(', ', ',').strip('[] ').split(','),
+                    lambda x: x[4:-1].replace(', ', ',').strip('[]\"\' ').split(','),
                     filter(
                         lambda x: x[0:4] == 'tag:',
                         takewhile(lambda l: l != '---\n', f.readlines()[1:]),
