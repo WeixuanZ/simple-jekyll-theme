@@ -66,13 +66,19 @@ ul {
     list-style: square;
 }
 
-// img {
-//     vertical-align: middle;
-// }
+img {
+    // vertical-align: middle;
+    max-width: 100%;
+}
+
+figure {
+    margin-left: 0;
+    margin-right: 0;
+}
 
 figure > img {
    display: block;
-   width: 50%;
+   width: 60%;
    margin: auto;
    border-radius: 10px;
  }
@@ -180,20 +186,29 @@ hr {
 // Indented boxes
 
 blockquote {
-    border-left: 4px solid $gray_element;
+    border-left-color: $gray_element;
     @include indented-box(var(--gray-element, $gray_element));
+    p {
+        padding-bottom: 0;
+    }
+}
+
+blockquote:not([class]) {
     @include color(color, --gray-text, $gray_text);
     a {
         @include color(color, --gray-text, $gray_text);
     }
+    a:hover {
+        color: $blue_hover;
+    }
 }
 
 .hint {
-    @include indented-box($blue);
+    border-left-color: $blue;
 }
 
 .danger {
-    @include indented-box($red);
+    border-left-color: $red;
 }
 
 

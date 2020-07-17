@@ -18,6 +18,11 @@ layout: default
 
 {{ content }}
 
+{% if page.comments %}
+    <div class="separator"></div>
+    {% include comment.html %}
+{% endif %}
+
 {% if site.posts.size > 1 %}
 <div class="separator"></div>
 <div id="blog-list-mini" class="no-select">
@@ -35,8 +40,3 @@ layout: default
 {% endif %}
 
 <button id="share-btn" fallback-text="Link Copied"><i class="fas fa-share"></i></button>
-
-{% if page.comments %}
-    <div class="separator"></div>
-    {% include comment.html %}
-{% endif %}

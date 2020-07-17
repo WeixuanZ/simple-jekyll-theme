@@ -9,6 +9,9 @@
     .container {
         width: 75%;
     }
+    figure > img {
+        width: 75%;
+    }
 }
 
 @media only screen and (max-width: 500px) {
@@ -20,6 +23,9 @@
     .container {
         width: 90%;
     }
+    figure > img {
+        width: 95%;
+    }
     #blog-list a .card{
         @include float-card;
     }
@@ -29,5 +35,4 @@
     #share-btn:hover{
         background-color: $blue;
     }
-    // -webkit-text-size-adjust: auto;
 }
