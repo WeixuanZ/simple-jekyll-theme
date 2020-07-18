@@ -64,6 +64,18 @@ $normalsize       : 14pt;
 $small            : 13pt;
 $footnotesize     : 12pt;
 
+// $Huge             : 2.7rem;  // main-header
+// $huge             : 2.2rem;  // header
+// $LARGE            : 2rem;  // h1
+// $Large            : 1.7rem;  // h2
+// $large            : 1.5rem;  // h3
+
+// $normalsize       : 1.1rem;
+
+// $small            : 1rem;
+// $footnotesize     : 0.9rem;
+
+
 
 // Mixins
 
@@ -82,4 +94,20 @@ $footnotesize     : 12pt;
     box-shadow: 9px 9px 16px rgba(0,0,0,0.1), -9px -9px 16px rgba(0,0,0,0.01);
     box-shadow: 9px 9px 16px var(--dark-shadow2, rgba(0,0,0,0.1)), -9px -9px 16px var(--dark-shadow3, rgba(0,0,0,0.01));
     @include color(background-color, --float-color, #fff);
+}
+
+
+$desktop-width: 1000px;
+$phone-width: 500px;
+
+@mixin tablet {
+  @media only screen and (min-width: #{$phone-width}) and (max-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+@mixin phone {
+  @media only screen and (max-width: #{$phone-width}) {
+    @content;
+  }
 }

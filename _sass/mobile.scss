@@ -1,8 +1,8 @@
 // Mobile
 
-@media only screen and (min-width: 500px) and (max-width: 1000px) {
+@include tablet {
     #main-header {
-        h1 {
+        a {
             font-size: $huge;
         }
     }
@@ -14,20 +14,29 @@
     }
 }
 
-@media only screen and (max-width: 500px) {
-    #main-header {
-        h1 {
-            font-size: $LARGE;
-        }
-    }
+@include phone {
     .container {
         width: 90%;
+    }
+    #main-header {
+        a {
+            font-size: 10vw;
+        }
+    }
+    .header {
+        font-size: $LARGE;
     }
     figure > img {
         width: 95%;
     }
     #blog-list a .card{
         @include float-card;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        .post-title {
+            font-size: $large;
+            font-weight: 600;
+        }
     }
     #share-btn{
         right: 30px;
