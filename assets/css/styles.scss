@@ -6,6 +6,10 @@
  */
 
 @import "definitions";
+
 @import "main";
+
 @import "blog";
+@include blog-critical;
+
 @import "mobile";

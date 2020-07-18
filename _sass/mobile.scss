@@ -1,13 +1,13 @@
-// Mobile
+// Mobile Critical
 
 @include tablet {
+    .container {
+        width: 75%;
+    }
     #main-header {
         a {
             font-size: $huge;
         }
-    }
-    .container {
-        width: 75%;
     }
     figure > img {
         width: 75%;
@@ -37,11 +37,5 @@
             font-size: $large;
             font-weight: 600;
         }
-    }
-    #share-btn{
-        right: 30px;
-    }
-    #share-btn:hover{
-        background-color: $blue;
     }
 }

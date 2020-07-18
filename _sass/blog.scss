@@ -1,5 +1,36 @@
 // Blog
 
+@mixin blog-critical{
+
+.post-meta, .page-meta  {
+    @include color(color, --gray-text, $gray_text);
+    font-size: $small;
+}
+
+.date{
+    margin-right: 10px;
+}
+
+.tag{
+    i {
+        font-size: 80%;
+        margin-right: 5px;
+        margin-left: 10px;
+    }
+    a {
+        @include color(color, --gray-text, $gray_text);
+        display: inline-block;
+    }
+    a:hover {
+        color: $blue_hover;
+    }
+    code {
+        margin: 0 5px;
+        white-space: nowrap;
+    }
+}
+
+
 #blog-list {
     display: flex;
     flex-direction: column;
@@ -49,41 +80,47 @@
     }
 }
 
-.post-meta, .page-meta  {
-    @include color(color, --gray-text, $gray_text);
-}
-
-.page-meta {
-    font-size: $small;
-}
-
-.date{
-    margin-right: 10px;
-}
-
-.tag{
-    i {
-        font-size: 80%;
-        margin-right: 5px;
-        margin-left: 10px;
-    }
-    a {
-        @include color(color, --gray-text, $gray_text);
-        display: inline-block;
-    }
-    a:hover {
-        color: $blue_hover;
-    }
-    code {
-        margin: 0 5px;
-        white-space: nowrap;
-    }
-}
-
 #blog-list-mini{
     margin: 10px;
     @include float-card;
 }
+
+@media only screen and (min-width: 1250px) and (min-height: 500px) {
+    #toc {
+        width: 13%;
+        max-width: 250px;
+        max-height: calc(100% - 300px);
+        position: fixed;
+        right: 2%;
+        top: 100px;
+        font-size: $footnotesize;
+        @include float-card;
+        padding: 15px;
+        text-overflow: ellipsis;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        a {
+            text-decoration: none;
+        }
+        h2 {
+            font-size: $normalsize;
+        }
+        ul {
+            padding-left: 20px;
+            list-style: none;
+        }
+    }
+
+    .active {
+        color: $blue;
+    }
+}
+
+}
+
+
+
+@mixin blog-noncritical{
 
 #share-btn{
     position: fixed;
@@ -139,34 +176,14 @@
     opacity: 1;
 }
 
-@media only screen and (min-width: 1250px) and (min-height: 500px) {
-    #toc {
-        width: 13%;
-        max-width: 250px;
-        max-height: calc(100% - 300px);
-        position: fixed;
-        right: 2%;
-        top: 100px;
-        font-size: $footnotesize;
-        @include float-card;
-        padding: 15px;
-        text-overflow: ellipsis;
-        overflow-y: scroll;
-        overflow-x: hidden;
-        a {
-            text-decoration: none;
-        }
-        h2 {
-            font-size: $normalsize;
-        }
-        ul {
-            padding-left: 20px;
-            list-style: none;
-        }
+@include phone {
+    #share-btn{
+        right: 30px;
     }
+    #share-btn:hover{
+        background-color: $blue;
+    }
+}
 
-    .active {
-        color: $blue;
-    }
 }
 

@@ -6,4 +6,8 @@
  */
 
 @import "definitions";
+
+@import "blog";
+@include blog-noncritical;
+
 @import "code";
