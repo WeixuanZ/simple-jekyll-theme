@@ -2,6 +2,7 @@
 .flowconfig
 .je-project-settings/
 *.sublime-*
+_dev/
 
 # Jekyll
 _site/

@@ -7,4 +7,5 @@ Disallow: /
 User-agent: *
 Disallow: /assets/images/
 Disallow: /*.pdf$
+Disallow: /*.pub$
 Sitemap: {{ site.url }}/sitemap.xml

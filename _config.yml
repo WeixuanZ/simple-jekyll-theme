@@ -13,6 +13,7 @@ title: Weixuan
 tagline: "Weixuan's personal blog"
 description: "A blog of random stuff"
 url: "https://weixuanz.github.io"
+logo: /assets/favicon-192x192.png
 
 defaults:
   -
