@@ -1,4 +1,4 @@
 ---
 layout: home
-title: Weixuan
+title: Home
 ---

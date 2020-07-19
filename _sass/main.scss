@@ -344,6 +344,6 @@ blockquote:not([class]) {
 
 #key:hover:after{
     display: inline-block;
-    content: "***REMOVED***";
+    content: attr(aria-label);
 }
 

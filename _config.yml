@@ -5,3 +5,18 @@ compress_html:
   clippings: all
   comments: ["<!-- ", " -->"]
   blanklines: false
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+title: Weixuan
+tagline: "Weixuan's personal blog"
+description: "A blog of random stuff"
+url: "https://weixuanz.github.io"
+
+defaults:
+  -
+    scope:
+      path: "assets/images/*"
+    values:
+      sitemap: false

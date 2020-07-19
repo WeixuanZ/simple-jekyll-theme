@@ -15,7 +15,7 @@ layout: compress
         <!-- Meta -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>{{ page.title }}</title>
+        <title>{{ page.title }} &middot; {{ site.title }}</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400&family=Source+Sans+Pro:wght@300;400;600;700&family=Black+Ops+One&text=Weixuan%20Zhang&display=swap" rel="stylesheet">
         <!-- Stylesheets -->
@@ -47,6 +47,8 @@ layout: compress
             <script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
             <script defer id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         {% endif %}
+    
+        {% seo title=false %}
     </head>
     <body>
         <!-- Google Tag Manager (noscript) -->

@@ -172,6 +172,7 @@ allCodeBlocksElements.forEach(function(el, i) {
     clipButton.innerHTML = '<i class="fas fa-clone"></i>';
     clipButton.className = 'code-copy-btn';
     clipButton.setAttribute('data-clipboard-target', `#${currentId}`);
+    clipButton.setAttribute('aria-label', `Copy ${currentId}`);
     el.querySelector('code').after(clipButton);
 })
 if (allCodeBlocksElements.length > 0) {new ClipboardJS('.code-copy-btn')};
