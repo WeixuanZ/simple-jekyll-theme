@@ -122,6 +122,32 @@
 
 @mixin blog-noncritical{
 
+iframe {
+    border: none;
+    box-shadow: 0 3px 20px rgba(0,0,0,0.1);
+}
+
+.iframecontainer {
+    height: 0;
+    padding-bottom: 56.25%;
+    width: 100%;
+    position: relative;
+}
+
+.iframecontainer > iframe {
+    position: absolute;
+    width: 95%;
+    height: 100%;
+    left: 2.5%;
+    border-radius: 5px;
+}
+
+.iframecontainer > iframe[src*="slides"] {
+    width: 100%;
+    left: 0;
+    box-shadow: none;
+}
+
 #share-btn{
     position: fixed;
     right: 60px;

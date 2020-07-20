@@ -35,14 +35,11 @@ pre code {
     border: none;
     border-radius: 50%;
     position: absolute;
-    top: 12px;
-    right: 3%;
-}
+    top: calc(min(100% - 36px, 12px));
+    right: 2.5%;
 
-@media only screen and (max-width: 1000px) {
-    .highlight .code-copy-btn {
-        color: rgba(255, 255, 255, 0.3);
-        background-color: rgba(255, 255, 255, 0.1);
+    @media only screen and (max-width: 1000px) {
+        opacity: 1;
     }
 }
 
@@ -62,9 +59,10 @@ pre code {
 
 /* Adjusted to give override background and text colour */
 .highlight pre, pre, .highlight .hll {
-    /*background-color: #49483E;*/
+    // background-color: #49483E;
     background-color: #222;
     border: none;
+    // box-sizing: border-box;
     width: 95%;
     margin: 20px auto;
     padding: 6px 10px;
@@ -74,6 +72,10 @@ pre code {
     box-shadow: 0 5px 20px var(--dark-shadow2, rgba(0,0,0,0.3));
     overflow: scroll;
     z-index: 2;
+
+    // @include phone {
+    //     box-sizing: content-box;
+    // }
 }
 
 .gist pre {

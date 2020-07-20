@@ -6,6 +6,7 @@ Disallow: /
 
 User-agent: *
 Disallow: /assets/images/
+Disallow: /tags/
 Disallow: /*.pdf$
-Disallow: /*.pub$
+Disallow: /*.asc$
 Sitemap: {{ site.url }}/sitemap.xml

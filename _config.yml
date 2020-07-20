@@ -10,14 +10,21 @@ plugins:
   - jekyll-sitemap
 
 title: Weixuan
+author: Weixuan Zhang
 tagline: "Weixuan's personal blog"
 description: "A blog of random stuff"
 url: "https://weixuanz.github.io"
 logo: /assets/favicon-192x192.png
+lang: en
 
 defaults:
   -
     scope:
       path: "assets/images/*"
+    values:
+      sitemap: false
+  -
+    scope:
+      path: "tags/*"
     values:
       sitemap: false
