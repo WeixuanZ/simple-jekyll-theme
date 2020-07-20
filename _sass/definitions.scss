@@ -11,8 +11,8 @@ $gray_light       : rgb(245, 247, 249);
 $red              : rgb(255, 70, 66);
 
 @mixin color($property, $var, $fallback){
-  #{$property}: $fallback;  // This is a fallback for browsers that don't support the next line.
-  #{$property}: var($var, $fallback);
+    #{$property}: $fallback;  // This is a fallback for browsers that don't support the next line.
+    #{$property}: var($var, $fallback);
 }
 
 @mixin frosted-glass{
@@ -77,8 +77,6 @@ $footnotesize     : 12pt;
 
 
 
-// Mixins
-
 @mixin indented-box($side-color) {
     padding-left: 10px;
     margin: 10px;
@@ -96,18 +94,30 @@ $footnotesize     : 12pt;
     @include color(background-color, --float-color, #fff);
 }
 
+@mixin gray-link {
+    a {
+        @include color(color, --gray-text, $gray_text);
+        @content;
 
-$desktop-width: 1000px;
-$phone-width: 500px;
+        &:hover {
+            color: $blue_hover;
+        }
+    }
+}
+
+
+// Break Points
+$desktop-min-width: 1000px;
+$phone-max-width: 500px;
 
 @mixin tablet {
-  @media only screen and (min-width: #{$phone-width}) and (max-width: #{$desktop-width}) {
-    @content;
-  }
+    @media only screen and (min-width: #{$phone-max-width}) and (max-width: #{$desktop-min-width}) {
+        @content;
+    }
 }
 
 @mixin phone {
-  @media only screen and (max-width: #{$phone-width}) {
-    @content;
-  }
+    @media only screen and (max-width: #{$phone-max-width}) {
+        @content;
+    }
 }

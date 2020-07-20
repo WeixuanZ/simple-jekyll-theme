@@ -4,6 +4,9 @@
 User-agent: Googlebot-Image
 Disallow: /
 
+User-agent: Baiduspider
+Disallow: /
+
 User-agent: *
 Disallow: /assets/images/
 Disallow: /tags/

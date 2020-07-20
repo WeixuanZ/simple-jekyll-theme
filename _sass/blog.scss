@@ -12,17 +12,11 @@
 }
 
 .tag{
+    @include gray-link {display: inline-block;};
     i {
         font-size: 80%;
         margin-right: 5px;
         margin-left: 10px;
-    }
-    a {
-        @include color(color, --gray-text, $gray_text);
-        display: inline-block;
-    }
-    a:hover {
-        color: $blue_hover;
     }
     code {
         margin: 0 5px;
@@ -58,8 +52,7 @@
     }
 
     a:hover{
-        text-decoration: none;
-        @include color(color, --text-color, $text_color);
+        color: inherit;
         .card{
             @include float-card;
             margin-top: 5px;
@@ -140,12 +133,12 @@ iframe {
     height: 100%;
     left: 2.5%;
     border-radius: 5px;
-}
 
-.iframecontainer > iframe[src*="slides"] {
-    width: 100%;
-    left: 0;
-    box-shadow: none;
+    &[src*="slides"] {
+        width: 100%;
+        left: 0;
+        box-shadow: none;
+    }
 }
 
 #share-btn{
@@ -168,14 +161,22 @@ iframe {
         transform: translate(-50%, -50%);
         font-size: 150%;
     }
-}
 
-#share-btn:hover{
-    background-color: $blue_hover;
-}
+    &:hover{
+        background-color: $blue_hover;
+        cursor: pointer;
+    }
 
-#share-btn:active{
-    box-shadow: none;
+    &:active{
+        box-shadow: none;
+    }
+
+    @include phone {
+        right: 30px;
+        &:hover{
+            background-color: $blue;
+        }
+    }
 }
 
 .shared:before {
@@ -193,22 +194,13 @@ iframe {
     z-index: 1;
     opacity: 0;
     transition: opacity 0.3s;
-    @include color(background-color, --dark-frosted-glass, rgba(245, 247, 249, 0.5));
     border-radius: 5px;
+    @include color(background-color, --dark-frosted-glass, rgba(245, 247, 249, 0.5));
     @include frosted-glass;
 }
 
 .shared:hover:before {
     opacity: 1;
-}
-
-@include phone {
-    #share-btn{
-        right: 30px;
-    }
-    #share-btn:hover{
-        background-color: $blue;
-    }
 }
 
 }
