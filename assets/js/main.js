@@ -138,7 +138,7 @@ function fadeOutIn(elem, newHTML = undefined, transition = 150){
 }
 
 (function initializeFooter(){
-    const license_notice = '<a href="/license">License and Privacy Notice</a>';
+    const license_notice = '<a href="/license">Privacy Policy and License</a>';
     const footer = document.querySelector("#main-footer");
     const copyleft = footer.querySelector("#copyleft");
     const original_notice = copyleft.innerHTML;

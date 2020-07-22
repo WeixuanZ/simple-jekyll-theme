@@ -72,8 +72,13 @@ iframe,
 img,
 svg,
 video {
-  vertical-align: middle;
-  max-width: 100%;
+    vertical-align: middle;
+    max-width: 100%;
+}
+
+// Preventing broken image symbol when using lazysizes
+img.lazyload:not([src]) {
+    visibility: hidden;
 }
 
 figure {
