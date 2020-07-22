@@ -66,9 +66,14 @@ ul {
     list-style: square;
 }
 
-img {
-    // vertical-align: middle;
-    max-width: 100%;
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+  max-width: 100%;
 }
 
 figure {
@@ -107,6 +112,12 @@ caption {
     @extend figcaption;
 }
 
+hr {
+    border: 0;
+    height: 2px;
+    @include color(background-color, --gray-element, $gray_element);
+}
+
 .footnotes {
     ol {
         font-size: $footnotesize;
@@ -127,6 +138,8 @@ caption {
     }
 }
 
+
+
 // Adjustment for anchor tag positioning with fixed header
 :target {
     &[id^="fn"]{
@@ -146,11 +159,9 @@ caption {
     }
 }
 
-hr {
-    border: 0;
-    height: 2px;
-    @include color(background-color, --gray-element, $gray_element);
-}
+
+
+// Helper classes
 
 .separator{
     margin-top: 60px;
@@ -163,6 +174,41 @@ hr {
     -ms-user-select: none;      
     user-select: none;
 }
+
+// Hide visually and maintain layout, but not from screen readers
+.transparent {
+    opacity: 0;
+}
+
+// Hide visually and from screen readers, but maintain layout
+// .invisible {
+//     visibility: hidden;
+// }
+
+
+// Hide visually and from screen readers
+// .hidden, [hidden] {
+//     display: none !important;
+// }
+
+// Like display: none; but visible to screen readers
+// .visuallyhidden { 
+//     position: absolute; 
+//     overflow: hidden; 
+//     clip: rect(0 0 0 0); 
+//     height: 1px; width: 1px; 
+//     margin: -1px; padding: 0; border: 0;
+// }
+
+// +--------------------+----------------+-----------------+
+// | Property           | occupies space | consumes clicks |
+// +--------------------+----------------+-----------------+
+// | opacity: 0         |        ✓       |        ✓        |
+// +--------------------+----------------+-----------------+
+// | visibility: hidden |        ✓       |        ✗        |
+// +--------------------+----------------+-----------------+
+// | display: none      |        ✗       |        ✗        |
+// +--------------------+----------------+-----------------+
 
 
 // Indented boxes
@@ -251,10 +297,6 @@ blockquote {
     top: 0;
     box-shadow: 0 12px 12px -12px rgba(0, 0, 0, 0.5);
     box-shadow: 0 12px 12px -12px var(--dark-shadow1, rgba(0, 0, 0, 0.5));
-}
-
-.hidden {
-    opacity: 0;
 }
 
 #dark-toggle-box {

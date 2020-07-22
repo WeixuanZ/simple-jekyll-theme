@@ -8,14 +8,18 @@ compress_html:
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
+  - jekyll-feed
 
 title: Weixuan
 author: Weixuan Zhang
 tagline: "Weixuan's personal blog"
-description: "A blog of random stuff"
+description: "A blog of awesome stuff"
 url: "https://weixuanz.github.io"
 logo: /assets/favicon-192x192.png
 lang: en
+
+feed:
+  posts_limit: 10
 
 defaults:
   -

@@ -48,7 +48,7 @@ function savePref(key, value){
 
 function updatePref(newPref, withTransition = true, save = true, override = false){
     const root = document.documentElement;
-    const els = elsRequireTransit(['body', '#navbar', '#main-header', 'code', '#blog-list-mini', '.card']);
+    const els = elsRequireTransit(['body', '#navbar', '#main-header', 'code', '#blog-list-mini', '.card', '#toc']);
     if ((currentPref() === 'dark' || override) && newPref === 'light') {
         if (withTransition) toggleTransition(els);
         root.classList.remove('theme-dark');
@@ -82,12 +82,12 @@ function hideCheckbox() {
     const toggle_label = document.querySelector('#dark-toggle-label');
     window.addEventListener('scroll', function () {
         if (this.scrollY >= nav_init) {
-            toggle_label.classList.add('hidden');
+            toggle_label.classList.add('transparent');
             if (currentPref() === 'dark') {
                 navbar.style.background = '#22222280';
             }
         } else {
-            toggle_label.classList.remove('hidden');
+            toggle_label.classList.remove('transparent');
             if (currentPref() === 'dark') {
                 navbar.style.background = '#121212';
             }
@@ -133,8 +133,8 @@ function listenToCheckbox(){
 
 /* Footer */
 function fadeOutIn(elem, newHTML = undefined, transition = 150){
-    elem.classList.add('hidden');
-    setTimeout(()=>{if (newHTML) elem.innerHTML = newHTML; elem.classList.remove('hidden');}, transition);
+    elem.classList.add('transparent');
+    setTimeout(()=>{if (newHTML) elem.innerHTML = newHTML; elem.classList.remove('transparent');}, transition);
 }
 
 (function initializeFooter(){
