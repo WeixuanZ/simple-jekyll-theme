@@ -8,7 +8,7 @@ Script for automatic extraction of Jekyll tags and creating corresponding tagpag
 Specify multiple tags in the post front matter like this:
 ---
 <...some front matter>
-tag: [tag1, tag2<,or without a space after comma>]
+tag: ["tag1", "tag2"<,"or without a space after comma">]
 <...more front matter>
 ---
 """

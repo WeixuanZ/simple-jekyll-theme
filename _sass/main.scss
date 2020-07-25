@@ -156,7 +156,7 @@ hr {
         }
     }
 
-    &:not([id^="fn"]):before{
+    &:not(div):not([id^="fn"]):before{
         content: "";
         display: block;
         padding-top: 65px;

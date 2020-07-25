@@ -13,11 +13,9 @@
     listenToCheckbox()
     hideCheckbox()
 
-    updatePref(
-        storedPref() ||
-        OSPref(),
-        false
-    )
+    const pref = storedPref() || OSPref();
+    initializeUtterances(pref)
+    updatePref(pref, false)
 }())
 
 // Helper Functions
@@ -46,6 +44,23 @@ function savePref(key, value){
 }
 
 
+function updateUtterances(pref) {
+    const origin = 'https://weixuanz.github.io';
+    const message = {
+      type: 'set-theme',
+      theme: pref
+    };
+    const utterances = document.querySelector('#utterances iframe');
+    if (utterances) {utterances.contentWindow.postMessage(message, origin)};
+}
+
+function initializeUtterances(pref) {
+    addEventListener('message', () => {
+        updateUtterances(pref);
+    })
+}
+
+
 function updatePref(newPref, withTransition = true, save = true, override = false){
     const root = document.documentElement;
     const els = elsRequireTransit(['body', '#navbar', '#main-header', 'code', '#blog-list-mini', '.card', '#toc']);
@@ -54,12 +69,14 @@ function updatePref(newPref, withTransition = true, save = true, override = fals
         root.classList.remove('theme-dark');
         navbar.style.background = '#fff';
         updateCheckbox('light');
+        updateUtterances('light');
         if (withTransition) setTimeout(()=>{toggleTransition(els, false)}, 1000);
     } else if ((currentPref() === 'light' || override) && newPref === 'dark') {
         if (withTransition) toggleTransition(els);
         root.classList.add('theme-dark');
         navbar.style.background = '#121212';
         updateCheckbox('dark');
+        updateUtterances('dark');
         if (withTransition) setTimeout(()=>{toggleTransition(els, false)}, 1000);
     }
     if (save) savePref('preference-theme', newPref);
