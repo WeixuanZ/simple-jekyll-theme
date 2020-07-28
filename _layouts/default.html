@@ -18,7 +18,7 @@ layout: compress
         <title>{{ page.title }} &middot; {{ site.title }}</title>
         <!-- Fonts -->
         <link href='https://fonts.gstatic.com' rel='preconnect' crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400&family=Source+Sans+Pro:wght@300;400;600;700&display=swap&family=Black+Ops+One&text=Weixuan%20Zhang" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Ops+One&text=Weixuan%20Zhang">
         <!-- Stylesheets -->
         <link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
         <link rel="stylesheet" href="/assets/css/styles_noncritical.css" media="print" onload="this.media='all'">
@@ -29,7 +29,7 @@ layout: compress
         <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192x192.png">
 
         {% if page.content contains "lazyload" %}
-            <script async="" src="https://cdn.jsdelivr.net/npm/lazysizes@5/lazysizes.min.js"></script>
+            <script async src="https://cdn.jsdelivr.net/npm/lazysizes@5/lazysizes.min.js"></script>
         {% endif %}
         
         {% if page.mathjax %}

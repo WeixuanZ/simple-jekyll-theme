@@ -57,7 +57,7 @@ function updateUtterances(pref) {
 function initializeUtterances(pref) {
     addEventListener('message', () => {
         updateUtterances(pref);
-    })
+    }, { once: true })
 }
 
 

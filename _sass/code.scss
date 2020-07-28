@@ -1,24 +1,30 @@
-// inline code
 code {
+    font-family: $font_code;
+
+    // inline code
     margin: 1px;
     padding: 3px 6px;
     border-radius: 3px;
-    font-family: $font_code;
     font-size: 0.85em;
     background-color: $gray_light;
     background-color: var(--float-color, $gray_light);
-    overflow-wrap: anywhere;
-}
+    // Allow line break anywhere for code surrounded by backticks in markdown
+    &[class*="language-plaintext"] {
+        overflow-wrap: break-word;
 
-// code block
-pre code {
-    background: none;
-    border: none;
-    padding: 0;
-    margin: 0;
-    font-size: 0.8em;
-    line-height: 0.8;
-    text-transform: none;
+        word-break: break-all;
+        word-break: break-word;
+    }
+
+    // code block
+    pre & {
+        background: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+        font-size: 0.8em;
+        line-height: 0.8;
+    }
 }
 
 // https://weblog.west-wind.com/posts/2019/Dec/30/A-HighlightJs-Copy-Code-Badge-Component
