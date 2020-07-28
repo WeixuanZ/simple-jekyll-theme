@@ -7,6 +7,7 @@ code {
     font-size: 0.85em;
     background-color: $gray_light;
     background-color: var(--float-color, $gray_light);
+    overflow-wrap: anywhere;
 }
 
 // code block

@@ -89,11 +89,15 @@
         font-size: $footnotesize;
         @include float-card;
         padding: 15px;
-        text-overflow: ellipsis;
         overflow-y: scroll;
-        overflow-x: hidden;
+        // https://stackoverflow.com/a/7993098/10365842
         a {
+            display:inline-block;
             text-decoration: none;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            width: calc(100%);
         }
         h2 {
             font-size: $normalsize;

@@ -47,8 +47,8 @@ function savePref(key, value){
 function updateUtterances(pref) {
     const origin = 'https://weixuanz.github.io';
     const message = {
-      type: 'set-theme',
-      theme: pref
+      'type': 'set-theme',
+      'theme': pref
     };
     const utterances = document.querySelector('#utterances iframe');
     if (utterances) {utterances.contentWindow.postMessage(message, origin)};

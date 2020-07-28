@@ -7,6 +7,10 @@ layout: default
     {% if page.tags.size > 0 %}
         <span class="tag"><i class="fas fa-tag"></i>{% for tag in page.tags %}<a href="/tags/{{ tag | slugify }}"><code>{{ tag }}</code></a>{% endfor %}</span>
     {% endif %}
+
+    <p>
+        <em>{{ page.description }}</em>
+    </p>
 </div>
 
 {% if page.toc %}

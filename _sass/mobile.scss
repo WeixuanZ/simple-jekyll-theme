@@ -29,6 +29,9 @@
     figure > img {
         width: 95%;
     }
+    table {
+        width: 95%;
+    }
     #blog-list a .card{
         @include float-card;
         padding-top: 10px;
