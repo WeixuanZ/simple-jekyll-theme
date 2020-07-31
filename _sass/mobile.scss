@@ -32,6 +32,10 @@
     table {
         width: 95%;
     }
+    // https://stackoverflow.com/questions/5303263/fix-font-size-issue-on-mobile-safari-iphone-where-text-is-rendered-inconsisten
+    td {
+        -webkit-text-size-adjust:100%;
+    }
     #blog-list a .card{
         @include float-card;
         padding-top: 10px;

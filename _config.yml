@@ -27,8 +27,3 @@ defaults:
       path: "assets/images/*"
     values:
       sitemap: false
-  -
-    scope:
-      path: "tags/*"
-    values:
-      sitemap: false
