@@ -73,7 +73,21 @@
     }
 }
 
+
+#loadmore-btn {
+    padding: 20px 0;
+    margin: 10px auto;
+    width: 100%;
+    color: $blue;
+    font-size: $large;
+    font-weight: 600;
+    background: none;
+    border: none;
+}
+
+
 #blog-list-mini{
+    padding: 2% 5%;
     margin: 10px;
     @include float-card;
 }
@@ -141,6 +155,28 @@ iframe {
         width: 100%;
         left: 0;
         box-shadow: none;
+    }
+}
+
+#loadmore-btn{
+    &:hover {
+        @include float-card;
+        margin-top: 5px;
+        margin-bottom: 15px;
+        transition: 0.3s;
+        cursor: pointer;
+        color: $blue_hover;
+    }
+
+    &:active {
+        margin: 10px auto;
+        box-shadow: none;
+        transition: none;
+    }
+
+    &:disabled {
+        color: $gray_text;
+        @include color(color, --gray-text, $gray_text);
     }
 }
 

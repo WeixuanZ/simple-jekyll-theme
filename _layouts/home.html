@@ -2,16 +2,24 @@
 layout: default
 ---
 
-{% if page.content.size > 0%}
+{% if page.content.size > 0 %}
     {{ content }}
     <div class="separator"></div>
 {% endif %}
 
 <h1 class="header">Posts</h1>
-<div id="blog-list">
-{% for post in site.categories.posts %}
+<div id="blog-list" data-page="{{ paginator.page }}" data-totalPages="{{ paginator.total_pages }}">
+{% for post in paginator.posts %}
     {% include post-card.html %}
 {% endfor %}
 </div>
 
+{% if paginator.total_pages > 1 %}
+    <button id="loadmore-btn">Load more...</button>
+{% endif %}
+
 {% include tag-cloud.html %}
+
+{% if paginator.total_pages > 1 %}
+    <script src="/assets/js/pagination.min.js" defer></script>
+{% endif %}

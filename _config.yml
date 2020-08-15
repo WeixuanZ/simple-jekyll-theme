@@ -9,6 +9,9 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-feed
+  - jekyll-paginate
+
+paginate: 5
 
 title: Weixuan
 author: Weixuan Zhang
@@ -27,3 +30,13 @@ defaults:
       path: "assets/images/*"
     values:
       sitemap: false
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+      type: "posts"
+    values:
+      layout: post
+      category: posts
+      author: Weixuan
+      comments: true
+      toc: true
