@@ -4,6 +4,9 @@
 *.sublime-*
 _dev/
 
+# Node
+node_modules/**/*
+
 # Jekyll
 _site/
 *-cache/

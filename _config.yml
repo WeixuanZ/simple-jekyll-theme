@@ -40,3 +40,12 @@ defaults:
       layout: post
       category: posts
       toc: true
+
+exclude:
+  - Gemfile
+  - Rakefile
+  - yarn.lock
+  - pre-commit
+  - /*.json
+  - /*.gemspec
+  - /*.gem
