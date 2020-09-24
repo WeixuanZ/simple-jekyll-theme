@@ -13,13 +13,15 @@ plugins:
 
 paginate: 5
 
-title: Weixuan
-author: Weixuan Zhang
-tagline: "Weixuan's personal blog"
+title: Simple Jekyll Theme
+author: John Doe
+tagline: "My personal blog"
 description: "A blog of awesome stuff"
-url: "https://weixuanz.github.io"
-logo: /assets/favicon-192x192.png
+url: "https://johndoe.github.io"
 lang: en
+
+fontawesome-kit-id: xxxxx
+# google-tag-manager-id: xxxxxxx
 
 feed:
   posts_limit: 10
@@ -37,6 +39,4 @@ defaults:
     values:
       layout: post
       category: posts
-      author: Weixuan
-      comments: true
       toc: true

@@ -6,10 +6,13 @@ layout: compress
 <html lang="en">
     {% include head.html %}
     <body>
+        {% if site.google-tag-manager-id %}
         <!-- Google Tag Manager (noscript) -->
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTMID"
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ site.google-tag-manager-id }}"
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
+        {% endif %}
+
         <div id="main-header" class="no-select">
             <div class="container">
                 <a {% if page.layout != 'home' %}href="/index.html"{% endif %}>{{ site.author }}</a>

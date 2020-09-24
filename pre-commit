@@ -1,0 +1,14 @@
+#!/bin/sh
+
+if git diff --cached --name-only | grep --quiet "assets/js/main.js"
+then
+    closure-compiler --compilation_level ADVANCED --jscomp_off=undefinedVars --language_out ECMASCRIPT_2015 --warning_level VERBOSE --js_output_file assets/js/main.min.js --js assets/js/main.js 
+    git add assets/js/main.min.js
+fi
+
+if git diff --cached --name-only | grep --quiet "_posts/"
+then
+    ./tag_generator.py
+    git diff --name-only | grep "tags/" | xargs git add
+    git add tags/*
+fi
