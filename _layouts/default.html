@@ -4,41 +4,7 @@ layout: compress
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <!-- Google Tag Manager -->
-        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTMID');</script>
-        <!-- End Google Tag Manager -->
-        <!-- Meta -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>{{ page.title }} &middot; {{ site.title }}</title>
-        <!-- Fonts -->
-        <link href='https://fonts.gstatic.com' rel='preconnect' crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Ops+One&text=Weixuan%20Zhang&display=swap">
-        <!-- Stylesheets -->
-        <link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
-        <link rel="stylesheet" href="/assets/css/styles_noncritical.css" media="print" onload="this.media='all'">
-        <noscript><link rel="stylesheet" href="/assets/css/styles_noncritical.css"></noscript> <!-- Fallback -->
-        <script defer src="https://kit.fontawesome.com/FAKIT.js" crossorigin="anonymous"></script>
-        <!-- Icons -->
-        <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192x192.png">
-
-        {% if page.content contains "lazyload" %}
-            <script async src="https://cdn.jsdelivr.net/npm/lazysizes@5/lazysizes.min.js"></script>
-        {% endif %}
-        
-        {% if page.mathjax %}
-            {% include mathjax.html %}
-        {% endif %}
-    
-        {% feed_meta %}
-        {% seo title=false %}
-    </head>
+    {% include head.html %}
     <body>
         <!-- Google Tag Manager (noscript) -->
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTMID"
@@ -46,7 +12,7 @@ layout: compress
         <!-- End Google Tag Manager (noscript) -->
         <div id="main-header" class="no-select">
             <div class="container">
-                <a {% if page.layout != 'home' %}href="/index.html"{% endif %}>Weixuan Zhang</a>
+                <a {% if page.layout != 'home' %}href="/index.html"{% endif %}>{{ site.author }}</a>
             </div>
         </div>
         

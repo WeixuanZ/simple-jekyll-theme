@@ -13,9 +13,7 @@
     listenToCheckbox()
     hideCheckbox()
 
-    const pref = storedPref() || OSPref();
-    initializeUtterances(pref)
-    updatePref(pref, false)
+    updatePref(storedPref() || OSPref(), false)
 }())
 
 // Helper Functions
@@ -43,24 +41,6 @@ function savePref(key, value){
     localStorage.setItem(key, value);
 }
 
-
-function updateUtterances(pref) {
-    const origin = 'https://weixuanz.github.io';
-    const message = {
-      'type': 'set-theme',
-      'theme': pref
-    };
-    const utterances = document.querySelector('#utterances iframe');
-    if (utterances) {utterances.contentWindow.postMessage(message, origin)};
-}
-
-function initializeUtterances(pref) {
-    addEventListener('message', () => {
-        updateUtterances(pref);
-    }, { once: true })
-}
-
-
 function updatePref(newPref, withTransition = true, save = true, override = false){
     const root = document.documentElement;
     const els = elsRequireTransit(['body', '#navbar', '#main-header', 'code', '#blog-list-mini', '.card', '#toc']);
@@ -69,14 +49,12 @@ function updatePref(newPref, withTransition = true, save = true, override = fals
         root.classList.remove('theme-dark');
         navbar.style.background = '#fff';
         updateCheckbox('light');
-        updateUtterances('light');
         if (withTransition) setTimeout(()=>{toggleTransition(els, false)}, 1000);
     } else if ((currentPref() === 'light' || override) && newPref === 'dark') {
         if (withTransition) toggleTransition(els);
         root.classList.add('theme-dark');
         navbar.style.background = '#121212';
         updateCheckbox('dark');
-        updateUtterances('dark');
         if (withTransition) setTimeout(()=>{toggleTransition(els, false)}, 1000);
     }
     if (save) savePref('preference-theme', newPref);
@@ -145,36 +123,6 @@ function listenToCheckbox(){
         }
     })
 }
-
-
-
-/* Footer */
-function fadeOutIn(elem, newHTML = undefined, transition = 150){
-    elem.classList.add('transparent');
-    setTimeout(()=>{if (newHTML) elem.innerHTML = newHTML; elem.classList.remove('transparent');}, transition);
-}
-
-(function initializeFooter(){
-    const license_notice = '<a href="/license">Privacy Policy and License</a>';
-    const footer = document.querySelector("#main-footer");
-    const copyleft = footer.querySelector("#copyleft");
-    const original_notice = copyleft.innerHTML;
-    let hover = false;
-    if (location.href.includes("about")) {
-        copyleft.innerHTML = license_notice;
-    } else if (!location.href.includes("license")) {   
-        footer.addEventListener("mouseover", function() {
-            if (!hover) {
-                fadeOutIn(copyleft, license_notice);
-                hover = true;
-            }
-        });
-        footer.addEventListener("mouseleave", function() {
-            fadeOutIn(copyleft, original_notice);
-            hover = false;
-        });
-    };
-}())
 
 
 
