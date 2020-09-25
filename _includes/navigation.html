@@ -1,6 +1,6 @@
 <nav id="navbar" class="no-select">
 <div class="container">
-{% for item in site.data.navigation %}
+{% for item in site.navigation %}
 <a {% if page.url == item.link %}class="current"{% else %}href="{{ item.link }}"{% endif %}>{{ item.name }}</a>
 {% endfor %}
 <input type="checkbox" id="dark-toggle-box">

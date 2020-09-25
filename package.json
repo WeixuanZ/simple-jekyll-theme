@@ -1,7 +1,7 @@
 {
   "scripts": {
     "tag": "./tag_generator.py",
-    "test": "rake test",
+    "test": "bundle exec rake",
     "minify": "closure-compiler --compilation_level ADVANCED --jscomp_off=undefinedVars --language_out ECMASCRIPT_2015 --warning_level VERBOSE --js_output_file assets/js/main.min.js --js assets/js/main.js",
     "build": "gem build simple-jekyll-theme.gemspec",
     "serve": "bundle exec jekyll serve"

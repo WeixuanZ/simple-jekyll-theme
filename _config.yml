@@ -11,20 +11,26 @@ plugins:
   - jekyll-feed
   - jekyll-paginate
 
-paginate: 5
-
 title: Simple Jekyll Theme
-author: John Doe
-tagline: "My personal blog"
-description: "A blog of awesome stuff"
-url: "https://johndoe.github.io"
+author: W Zhang
+tagline: "A minimalistic theme for blogs"
+description: "Theme for my personal blog https://weixuanz.github.io"
+url: "https://weixuanz.github.io/simple-jekyll-theme"
 lang: en
 
-fontawesome-kit-id: xxxxx
-# google-tag-manager-id: xxxxxxx
+fontawesome-kit-id: xxxxxxxxxx
+# google-tag-manager-id: GTM-xxxxxx
+
+paginate: 5
 
 feed:
   posts_limit: 10
+
+navigation:
+  - name: Home
+    link: /
+  - name: About
+    link: /about/
 
 defaults:
   -
