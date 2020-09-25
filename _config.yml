@@ -33,14 +33,12 @@ navigation:
     link: /about/
 
 defaults:
-  -
-    scope:
-      path: "assets/images/*"
-    values:
-      sitemap: false
-  -
-    scope:
+  - scope: 
       path: "" # an empty string here means all files in the project
+    values:
+      layout: default
+  - scope:
+      path: ""
       type: "posts"
     values:
       layout: post

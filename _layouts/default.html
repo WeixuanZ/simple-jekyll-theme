@@ -16,7 +16,7 @@ layout: compress
 
         <div id="main-header" class="no-select">
             <div class="container">
-                <a {% if page.layout != 'home' %}href="/index.html"{% endif %}>{{ site.title }}</a>
+                <a {% if page.layout != 'home' %}href="{{ site.url }}/index.html"{% endif %}>{{ site.title }}</a>
             </div>
         </div>
         
@@ -32,7 +32,7 @@ layout: compress
         {% if page.content contains '```' or page.layout == 'post' %}
             <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
         {% endif %}
-        <script src="/assets/js/main.min.js"></script>
+        <script src="{{ site.url }}/assets/js/main.min.js"></script>
     </body>
 </html>
 
