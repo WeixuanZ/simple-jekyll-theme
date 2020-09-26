@@ -348,6 +348,10 @@ blockquote {
     padding-bottom: 60px;
     font-size: $footnotesize;
     font-weight: 300;
+
+    i, .icon {
+        margin-right: 5px;
+    }
 }
 
 #copyleft{
@@ -361,7 +365,7 @@ blockquote {
 
 
 
-// Icons
+// Icons if not using Font Awesome Kit
 
 .icon {
     display: inline-block;

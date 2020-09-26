@@ -18,7 +18,9 @@ description: "Theme for my personal blog https://weixuanz.github.io"
 url: "https://weixuanz.github.io/simple-jekyll-theme"
 lang: en
 
+# Optional
 # google-tag-manager-id: GTM-xxxxxx
+# font-awesome-kit: xxxxxxxxx  # using Font Awesome Kit instead of defining svg icons
 
 paginate: 5
 

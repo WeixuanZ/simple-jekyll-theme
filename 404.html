@@ -5,7 +5,11 @@ permalink: ./404.html
 ---
 
 <div style="text-align: center;">
-    <svg class="icon" style="font-size: 500%"><use xlink:href="#icon-dizzy-solid"></use></svg>
+    {% if site.font-awesome-kit %}
+        <i class="fas fa-dizzy" style="font-size: 500%"></i>
+    {% else %}
+        <svg class="icon" style="font-size: 500%"><use xlink:href="#icon-dizzy-solid"></use></svg>
+    {% endif %}
     <h1 class="header">404: Page not found</h1>
     <p>Oops, I may have misplaced that link.</p>
 </div>

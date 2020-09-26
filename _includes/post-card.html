@@ -4,7 +4,14 @@
             <span class="date">{{ post.date | date: "%b %-d, %Y" }}</span>
             {% if post.tags.size > 0 %}
                 &verbar;
-                <span class="tag"><svg class="icon"><use xlink:href="#icon-tag-solid"></use></svg>{% for tag in post.tags %}<code>{{ tag }}</code>{% endfor %}</span>
+                <span class="tag">
+                    {%- if site.font-awesome-kit -%}
+                        <i class="fas fa-tag"></i>
+                    {%- else -%}
+                        <svg class="icon"><use xlink:href="#icon-tag-solid"></use></svg>
+                    {%- endif -%}
+                    {% for tag in post.tags %}<code>{{ tag }}</code>{% endfor %}
+                </span>
             {% endif %}
         </div>
         <span class="post-title">{{ post.title }}</span><br>

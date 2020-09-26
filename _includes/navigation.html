@@ -4,7 +4,13 @@
     <a {% if page.url == item.link %}class="current"{% else %}href="{{ site.url }}{{ item.link }}"{% endif %}>{{ item.name }}</a>
 {% endfor %}
 <input type="checkbox" id="dark-toggle-box">
-<label for="dark-toggle-box" id="dark-toggle-label"><svg class="icon"><use xlink:href="#icon-adjust-solid"></use></svg></label>
+<label for="dark-toggle-box" id="dark-toggle-label">
+    {% if site.font-awesome-kit %}
+        <i class="fas fa-adjust"></i>
+    {% else %}
+        <svg class="icon"><use xlink:href="#icon-adjust-solid"></use></svg>
+    {% endif %}
+</label>
 </div>
 </nav>
 <script type="text/javascript">

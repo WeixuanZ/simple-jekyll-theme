@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="{{ site.url }}/assets/css/styles_noncritical.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="{{ site.url }}/assets/css/styles_noncritical.css"></noscript> <!-- Fallback -->
 
+    {% if site.font-awesome-kit %}
+        <script defer src="https://kit.fontawesome.com/{{ site.font-awesome-kit }}.js" crossorigin="anonymous"></script>
+    {% endif %}
+
     {% if page.content contains "lazyload" %}
         <script async src="https://cdn.jsdelivr.net/npm/lazysizes@5/lazysizes.min.js"></script>
     {% endif %}
@@ -31,4 +35,6 @@
 
     {% feed_meta %}
     {% seo title=false %}
+
+    {% include custom-head.html %}
 </head>

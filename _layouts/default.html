@@ -5,7 +5,6 @@ layout: compress
 <!DOCTYPE html>
 <html lang="{{ site.lang }}">
     {% include head.html %}
-    {% include custom-head.html %}
     <body>
         {% if site.google-tag-manager-id %}
         <!-- Google Tag Manager (noscript) -->
@@ -14,7 +13,9 @@ layout: compress
         <!-- End Google Tag Manager (noscript) -->
         {% endif %}
 
-        {% include icons.html %}
+        {% if site.font-awesome-kit %}{% else %}
+            {% include icons.html %}
+        {% endif %}
 
         <div id="main-header" class="no-select">
             <div class="container">

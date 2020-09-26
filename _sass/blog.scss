@@ -13,7 +13,8 @@
 
 .tag{
     @include gray-link {display: inline-block;};
-    .icon {
+    i, .icon {
+        font-size: 80%;
         margin-right: 5px;
         margin-left: 10px;
     }
@@ -192,7 +193,7 @@ iframe {
     box-shadow: 0 0 10px $blue_hover;
     z-index: 10;
     
-    .icon {
+    i, .icon {
         position: absolute;
         left: 50%;
         top: 50%;
