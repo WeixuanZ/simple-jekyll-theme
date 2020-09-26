@@ -18,7 +18,6 @@ description: "Theme for my personal blog https://weixuanz.github.io"
 url: "https://weixuanz.github.io/simple-jekyll-theme"
 lang: en
 
-fontawesome-kit-id: xxxxxxxxxx
 # google-tag-manager-id: GTM-xxxxxx
 
 paginate: 5

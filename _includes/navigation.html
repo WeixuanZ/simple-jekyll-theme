@@ -1,10 +1,10 @@
 <nav id="navbar" class="no-select">
 <div class="container">
 {% for item in site.navigation %}
-<a {% if page.url == item.link %}class="current"{% else %}href="{{ site.url }}{{ item.link }}"{% endif %}>{{ item.name }}</a>
+    <a {% if page.url == item.link %}class="current"{% else %}href="{{ site.url }}{{ item.link }}"{% endif %}>{{ item.name }}</a>
 {% endfor %}
 <input type="checkbox" id="dark-toggle-box">
-<label for="dark-toggle-box" id="dark-toggle-label"><i class="fas fa-adjust"></i></label>
+<label for="dark-toggle-box" id="dark-toggle-label"><svg class="icon"><use xlink:href="#icon-adjust-solid"></use></svg></label>
 </div>
 </nav>
 <script type="text/javascript">

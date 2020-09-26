@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<h1 class="header"><i class="fas fa-tag" style="font-size: 80%"></i> {{ page.tag }}</h1>
+<h1 class="header"><svg class="icon"><use xlink:href="#icon-tag-solid"></use></svg> {{ page.tag }}</h1>
 <div id="blog-list">
 {% for post in site.tags[page.tag] %}
     {% include post-card.html %}

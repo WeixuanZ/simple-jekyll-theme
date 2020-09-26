@@ -296,6 +296,10 @@ blockquote {
         background-color: $blue;
         cursor: default;
     }
+
+    .icon {
+        display: block;
+    }
 }
 
 .sticky {
@@ -344,10 +348,6 @@ blockquote {
     padding-bottom: 60px;
     font-size: $footnotesize;
     font-weight: 300;
-
-    i{
-        margin-right: 5px;
-    }
 }
 
 #copyleft{
@@ -359,3 +359,15 @@ blockquote {
     content: attr(aria-label);
 }
 
+
+
+// Icons
+
+.icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    stroke-width: 0;
+    stroke: currentColor;
+    fill: currentColor;
+}

@@ -154,7 +154,7 @@ allCodeBlocksElements.forEach(function (el, i) {
   const currentId = `codeblock${i + 1}`
   el.querySelector('code').setAttribute('id', currentId)
   const clipButton = document.createElement('button')
-  clipButton.innerHTML = '<i class="fas fa-clone"></i>'
+  clipButton.innerHTML = '<svg class="icon"><use xlink:href="#icon-clone-solid"></use></svg>'
   clipButton.className = 'code-copy-btn'
   clipButton.setAttribute('data-clipboard-target', `#${currentId}`)
   clipButton.setAttribute('aria-label', `Copy ${currentId}`)

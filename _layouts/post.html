@@ -5,7 +5,7 @@ layout: default
 <div class="page-meta no-select">
     <span class="date">{{ page.date | date: "%b %-d, %Y" }}</span>
     {% if page.tags.size > 0 %}
-        <span class="tag"><i class="fas fa-tag"></i>{% for tag in page.tags %}<a href="{{ site.url }}/tags/{{ tag | slugify }}"><code>{{ tag }}</code></a>{% endfor %}</span>
+        <span class="tag"><svg class="icon"><use xlink:href="#icon-tag-solid"></use></svg>{% for tag in page.tags %}<a href="{{ site.url }}/tags/{{ tag | slugify }}"><code>{{ tag }}</code></a>{% endfor %}</span>
     {% endif %}
 
     <p>
@@ -43,4 +43,4 @@ layout: default
 </div>
 {% endif %}
 
-<button id="share-btn" fallback-text="Link Copied" aria-label="Share This Post"><i class="fas fa-share"></i></button>
+<button id="share-btn" fallback-text="Link Copied" aria-label="Share This Post"><svg class="icon"><use xlink:href="#icon-share-solid"></use></svg></button>
