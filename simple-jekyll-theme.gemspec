@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name                    = "simple-jekyll-theme"
-  spec.version                 = "0.1.0"
+  spec.version                 = "1.0.0"
   spec.authors                 = ["W Zhang"]
 
   spec.summary                 = "A minimalistic theme for personal blogs."

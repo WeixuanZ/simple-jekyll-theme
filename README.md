@@ -1,4 +1,11 @@
-![Simple](docs/head.png)
+![Simple](/docs/head.png)
+
+<style type="text/css">
+    p > a {
+        text-decoration: none;
+    }
+</style>
+
 
 A minimalistic Jekyll theme created for my blog - https://weixuanz.github.io.
 
@@ -16,12 +23,11 @@ A minimalistic Jekyll theme created for my blog - https://weixuanz.github.io.
 * Dynamic TOC
 * Code listings with copy button
 * RSS Feed and SEO
+* Google Tag Manager
 
 <p align="center">
-  <img alt="theme screenshot" src="screenshot.png" width="400"><br>
+    <a href="https://weixuanz.github.io/simple-jekyll-theme"><img alt="theme screenshot" src="/screenshot.png" width="400"></a>
 </p>
-
-Live demo also at https://weixuanz.github.io/simple-jekyll-theme.
 
 ---
 
@@ -43,7 +49,7 @@ This repository is a clone of that for my website, with commits not related to t
 
 ## Installation
 
-> If you are hosting your site on GitHub Pages, fork this repository and follow the [Development](#development) setup **instead**, and rename it to `<username>.github.io`. Alternatively, you can use the `remote_theme` configuration by including a whitelisted gem called _jekyll-remote-theme_ in your `_config.yml`.
+> If you are hosting your site on GitHub Pages, fork this repository and follow the [Development](#development) setup **instead**, and rename it to `<username>.github.io`. Alternatively, you can use `remote_theme: WeixuanZ/simple-jekyll-theme` by including a whitelisted gem called _jekyll-remote-theme_ in your `_config.yml`, [more details here](https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/adding-a-theme-to-your-github-pages-site-using-jekyll#adding-a-jekyll-theme-in-your-sites-_configyml-file).
 
 Add this line to your Jekyll site's `Gemfile`:
 
@@ -221,12 +227,12 @@ The files you may be particularly interested in:
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/weixuanz/simple-jekyll-theme. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/weixuanz/simple-jekyll-theme. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](https://contributor-covenant.org) code of conduct.
 
 
 ## Development
 
-To set up your environment to develop this theme, run `bundle install`.
+To set up your environment to develop this theme, run `bundle install` and `yarn install`.
 
 To test your theme, run `bundle exec jekyll serve` and open your browser at `http://localhost:4000`. This starts a Jekyll server using the theme. Add pages, documents, data, etc. like normal to test the theme's contents. As you make modifications to the theme and content, the site will regenerate and you should see the changes in the browser after a refresh, just like normal.
 
@@ -236,7 +242,7 @@ When the theme is released, only the files in `_layouts`, `_includes`, `_sass` a
 
 ## License
 
-The theme is available as open source under the terms of the [MIT License](LICENSE.md). Please link to this repository in the footer if you overwrite the default one.
+The theme is available as open source under the terms of the [MIT License](/LICENSE.md). Please link to this repository in the footer if you overwrite the default one.
 
 By default, svg icons used (in `./_includes/icons.html`) are from Font Awesome, which are licensed under the [Creative Commons Attribution 4.0 International license](https://creativecommons.org/licenses/by/4.0/). No modifications were made.
 

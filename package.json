@@ -1,10 +1,12 @@
 {
+  "version": "1.0.0",
   "scripts": {
     "tag": "./scripts/tag_generator.py",
     "test": "bundle exec rake",
+    "serve": "bundle exec jekyll serve",
     "minify": "closure-compiler --compilation_level ADVANCED --jscomp_off=undefinedVars --language_out ECMASCRIPT_2015 --warning_level VERBOSE --js_output_file assets/js/main.min.js --js assets/js/main.js",
     "build": "gem build simple-jekyll-theme.gemspec",
-    "serve": "bundle exec jekyll serve"
+    "release": "standard-version --sign"
   },
   "devDependencies": {
     "eslint": "^7.9.0",
@@ -14,6 +16,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
-    "prettier": "^2.1.2"
+    "prettier": "^2.1.2",
+    "standard-version": "^9.0.0"
   }
 }
