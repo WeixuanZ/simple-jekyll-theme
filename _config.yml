@@ -11,7 +11,7 @@ plugins:
   - jekyll-feed
   - jekyll-paginate
 
-title: Simple Jekyll Theme
+title: Simple
 author: W Zhang
 tagline: "A minimalistic theme for blogs"
 description: "Theme for my personal blog https://weixuanz.github.io"

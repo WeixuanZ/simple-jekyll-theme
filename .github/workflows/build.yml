@@ -39,3 +39,21 @@ jobs:
         gem push *.gem
       env:
         GEM_HOST_API_KEY: "${{secrets.RUBYGEMS_AUTH_TOKEN}}"
+
+    - name: Set Release Version
+      id: release-tag
+      run: echo ::set-output name=version::${GITHUB_REF#refs/*/}
+    - name: Extract Release Notes
+      id: extract-release-notes
+      uses: ffurrer2/extract-release-notes@v1
+    - name: Create Release
+      id: create-release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ steps.release-tag.outputs.version }}
+        release_name: ${{ steps.release-tag.outputs.version }}
+        body: ${{ steps.extract-release-notes.outputs.release_notes }}
+        draft: false
+        prerelease: false

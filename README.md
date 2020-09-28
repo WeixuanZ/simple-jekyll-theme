@@ -1,11 +1,16 @@
 ![Simple](/docs/head.png)
 
-<style type="text/css">
-    p > a {
-        text-decoration: none;
-    }
-</style>
-
+<p align="center">
+    <a aria-label="build" href="https://github.com/WeixuanZ/simple-jekyll-theme/actions" target="_blank">
+      <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/weixuanz/simple-jekyll-theme/Gem%20Publish?style=flat-square">
+    </a>
+    <a aria-label="version" href="https://github.com/WeixuanZ/simple-jekyll-theme/blob/master/CHANGELOG.md">
+      <img alt="Version" src="https://img.shields.io/github/package-json/v/weixuanz/simple-jekyll-theme?style=flat-square">
+    </a>
+    <a aria-label="license" href="#license" target="_blank">
+      <img alt="License: MIT" src="https://img.shields.io/github/license/weixuanz/simple-jekyll-theme?style=flat-square">
+    </a>
+</p>
 
 A minimalistic Jekyll theme created for my blog - https://weixuanz.github.io.
 
