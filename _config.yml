@@ -13,7 +13,7 @@ plugins:
 
 title: Simple
 author: W Zhang
-tagline: "A minimalistic theme for blogs"
+tagline: "A minimal theme for blogs"
 description: "Theme for my personal blog https://weixuanz.github.io"
 url: "https://weixuanz.github.io/simple-jekyll-theme"
 lang: en

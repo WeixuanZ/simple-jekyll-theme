@@ -12,7 +12,7 @@
     </a>
 </p>
 
-A minimalistic Jekyll theme created for my blog - https://weixuanz.github.io.
+A minimal Jekyll theme created for my blog - https://weixuanz.github.io.
 
 * GitHub Pages compatible
 * Optimised for speed (perfect score on PageSpeed Insight):
@@ -41,11 +41,12 @@ This repository is a clone of that for my website, with commits not related to t
 * [Installation](#installation)
 * [Usage](#usage)
     * [Metadata](#metadata)
+        * [Navigation](#navigation)
         * [Google Analytics \(optional\)](#google-analytics-optional)
         * [Font Awesome Kit \(optional\)](#font-awesome-kit-optional)
-    * [Navigation](#navigation)
-    * [Homepage](#homepage)
-    * [Blog Posts](#blog-posts)
+    * [Layouts](#layouts)
+        * [Homepage](#homepage)
+        * [Blog Posts and Tag Pages](#blog-posts-and-tag-pages)
     * [Customising](#customising)
 * [Contributing](#contributing)
 * [Development](#development)
@@ -54,9 +55,11 @@ This repository is a clone of that for my website, with commits not related to t
 
 ## Installation
 
-> If you are hosting your site on GitHub Pages, fork this repository and follow the [Development](#development) setup **instead**, and rename it to `<username>.github.io`. Alternatively, you can use `remote_theme: WeixuanZ/simple-jekyll-theme` by including a whitelisted gem called _jekyll-remote-theme_ in your `_config.yml`, [more details here](https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/adding-a-theme-to-your-github-pages-site-using-jekyll#adding-a-jekyll-theme-in-your-sites-_configyml-file).
+> If you are hosting your site on GitHub Pages, fork this repository and follow the [Development](#development) setup **instead**, and rename it to `<username>.github.io`.
+> 
+> Alternatively, you can use `remote_theme: weixuanz/simple-jekyll-theme` by including a whitelisted gem called _jekyll-remote-theme_ in your `_config.yml`, [more details here](https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/adding-a-theme-to-your-github-pages-site-using-jekyll#adding-a-jekyll-theme-in-your-sites-_configyml-file). Note that you will need to include the default `_config.yml` **entriely**, since no configuration will be copied.
 
-Add this line to your Jekyll site's `Gemfile`:
+If you are not using GitHub pages, follow along. Add this line to your Jekyll site's `Gemfile`:
 
 ```ruby
 gem "simple-jekyll-theme"
@@ -76,29 +79,39 @@ Add this line to your Jekyll site's `_config.yml`:
 theme: simple-jekyll-theme
 ```
 
-The theme provides four layouts:
-
-* `default.html` — The base layout that lays the foundation for subsequent layouts, can be used for standalone pages.
-* `home.html` — The layout for your landing-page / home-page / index-page. [[More Info](#homepage)]
-* `post.html` — The layout for your posts.
-* `tagpage.html` — The layout for your tag pages.
-
-Note that you would have to include the corresponding font-matter to specify the layout, since Jekyll’s default settings cannot be overridden by a theme-config.
-
-
 ### Metadata
 
-Overwrite the default values shown below by providing alternatives in your `_config.yml`.
+Set the keys shown below with desired values:
 
 ```yaml
-title: Simple Jekyll Theme
+permalink: pretty
+title: Simple
 author: W Zhang
-tagline: "A minimalistic theme for blogs"
+tagline: "A minimal theme for blogs"
 description: "Theme for my personal blog https://weixuanz.github.io"
 url: "https://weixuanz.github.io/simple-jekyll-theme"  # no "/" at the end
 lang: en
 paginate: 5  # number of posts displayed on each page
 ```
+
+Please note that since only key-value pairs in `_config.yml` are supported for pre-configuring, **you may need to copy other values (e.g. plugins) from the default `_config.yml` in this repository manually.** This behaviour is not consistent betweenn the gem and _jekyll-remote-theme_ approaches. If something is not showing up, copy the entire default `_config.yml`. More informationn at [pre-configuring theme-gems](https://jekyllrb.com/docs/themes/#pre-configuring-theme-gems40).
+
+> The `_config.yml` in this repository cannot purely contain key-value pairs because of the demo website.
+
+
+#### Navigation
+
+Add names and paths under the `navigation` key in `_config.yml` to specify links in the navigation bar:
+
+```yaml
+navigation:
+  - name: Home
+    link: /
+  - name: About
+    link: /about/
+```
+
+Note that the default permalink setting is `pretty`, you need to include `permalink: pretty` in `_config.yml`, and use the corresponding format when specifying `navigation`.
 
 
 #### Google Analytics (optional)
@@ -120,22 +133,19 @@ font-awesome-kit: xxxxxxxxxx
 If the above is specified in `_config.yml`, svg icon definitions will not be included, and `<i />` will be used.
 
 
-### Navigation
+### Layouts
 
-Add names and paths under the `navigation` key in `_config.yml` to specify links in the navigation bar:
+The theme provides four layouts:
 
-```yaml
-navigation:
-  - name: Home
-    link: /
-  - name: About
-    link: /about/
-```
+* `default.html` — The base layout that lays the foundation for subsequent layouts, can be used for standalone pages.
+* `home.html` — The layout for your landing-page / home-page / index-page. [[More Info](#homepage)]
+* `post.html` — The layout for your posts.
+* `tagpage.html` — The layout for your tag pages.
 
-Note that the default permalink setting is `pretty`, you need to include `permalink: pretty` in `_config.yml`, or use the corresponding format when specifying `navigation`.
+**Note that you would have to include the corresponding font-matter to specify the layout, since Jekyll’s default settings cannot be overridden by a theme-config.**
 
 
-### Homepage
+#### Homepage
 
 Add the following to `index.html` of your site:
 
@@ -153,7 +163,7 @@ Please note that for pagination to work, the index file must be in `.html` inste
 All content from the file (if there's any) will be injected above the generated post list by the `home` layout. This will allow you to include non-posts related content to be published on the landing page.
 
 
-### Blog Posts
+#### Blog Posts and Tag Pages
 
 Name your blog posts as `yyyy-mm-dd-name.md` and put them in `./_posts/`. Some important front matter configurations are listed below:
 
