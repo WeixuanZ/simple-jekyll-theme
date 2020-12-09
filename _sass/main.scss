@@ -274,6 +274,21 @@ blockquote {
         line-height: 1.5;
     }
 
+    .icon {
+        display: block;
+    }
+}
+
+.sticky {
+    position: sticky;
+    top: 0;
+    box-shadow: 0 12px 12px -12px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 12px 12px -12px var(--dark-shadow1, rgba(0, 0, 0, 0.5));
+}
+
+#nav-links {
+    overflow: scroll;
+
     a{
         color: $blue;
         text-decoration: none;
@@ -296,29 +311,26 @@ blockquote {
         background-color: $blue;
         cursor: default;
     }
+}
 
-    .icon {
-        display: block;
+#nav-btns {
+    margin-left: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    transition: opacity 0.3s ease-in-out;
+
+    & > * {
+        margin: 0 10px;
+        transition: transform 0.3s ease-in-out;
+        cursor: pointer;
+    }
+
+    #navbar:hover & {
+        opacity: 1;
     }
 }
 
-.sticky {
-    position: sticky;
-    top: 0;
-    box-shadow: 0 12px 12px -12px rgba(0, 0, 0, 0.5);
-    box-shadow: 0 12px 12px -12px var(--dark-shadow1, rgba(0, 0, 0, 0.5));
-}
-
-#dark-toggle-box {
-    display: none;
-}
-
-#dark-toggle-label {
-    margin-left: auto;
-    margin-right: 10px;
-    transition: all 0.3s ease-in-out;
-    transition-property: opacity, transform;
-    cursor: pointer;
+#dark-toggle-box, #dark-toggle-label {
     display: none;
 }
 
@@ -331,10 +343,6 @@ blockquote {
 
 #dark-toggle-box:checked + #dark-toggle-label {
     transform: rotate(180deg);
-}
-
-#navbar:hover #dark-toggle-label{
-    opacity: 1;
 }
 
 

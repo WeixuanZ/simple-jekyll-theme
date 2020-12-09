@@ -36,7 +36,7 @@ A minimal Jekyll theme created for my blog - https://weixuanz.github.io.
 
 ---
 
-This repository is a clone of that for my website, with commits not related to the theme stripped out, also with modifications for generalisation. For the commenting system (not included in this theme), check out [my fork of Utterances](https://github.com/WeixuanZ/utterances).
+This repository is a clone of that for my website, with commits not related to the theme stripped out, also with modifications for generalisation. For the commenting system (not included in this theme), check out [WeixuanZ/utterances](https://github.com/WeixuanZ/utterances). For Algolia search integration, [WeixuanZ/search](https://github.com/WeixuanZ/search) may be of interest.
 
 * [Installation](#installation)
 * [Usage](#usage)

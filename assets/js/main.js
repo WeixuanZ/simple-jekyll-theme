@@ -96,15 +96,15 @@ function elsRequireTransit(els) {
 // Event Listeners
 
 function hideCheckbox() {
-  const toggleLabel = document.querySelector('#dark-toggle-label')
+  const navBtns = document.querySelector('#nav-btns')
   window.addEventListener('scroll', function () {
     if (this.scrollY >= nav_init) {
-      toggleLabel.classList.add('transparent')
+      navBtns.classList.add('transparent')
       if (currentPref() === 'dark') {
         navbar.style.background = '#22222280'
       }
     } else {
-      toggleLabel.classList.remove('transparent')
+      navBtns.classList.remove('transparent')
       if (currentPref() === 'dark') {
         navbar.style.background = '#121212'
       }

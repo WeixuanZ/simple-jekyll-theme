@@ -32,6 +32,8 @@ layout: compress
             {% include footer.html %}
         </div>
 
+        {% include foot.html %}
+
         {% if page.content contains '```' or page.layout == 'post' or page.clipboard %}
             <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
         {% endif %}
