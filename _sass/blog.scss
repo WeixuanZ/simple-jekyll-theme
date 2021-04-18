@@ -9,6 +9,7 @@
 
 .date{
     margin-right: 10px;
+    white-space: nowrap;
 }
 
 .tag{
@@ -192,7 +193,7 @@ iframe {
     background-color: $blue;
     box-shadow: 0 0 10px $blue_hover;
     z-index: 10;
-    
+
     i, .icon {
         position: absolute;
         left: 50%;

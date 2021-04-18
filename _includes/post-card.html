@@ -1,10 +1,10 @@
 <a href="{{ site.url }}{{ post.url }}">
     <div class="card">
-        <div class="post-meta">
+        <div class="post-meta" style="display: flex;">
             <span class="date">{{ post.date | date: "%b %-d, %Y" }}</span>
             {% if post.tags.size > 0 %}
                 &verbar;
-                <span class="tag">
+                <span class="tag" style="overflow: hidden; white-space: nowrap;">
                     {%- if site.font-awesome-kit -%}
                         <i class="fas fa-tag"></i>
                     {%- else -%}
