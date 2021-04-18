@@ -92,7 +92,7 @@ figure > img {
     margin: auto;
     border-radius: 10px;
  }
- 
+
 figcaption {
     @include color(color, --gray-text, $gray_text);
     font-size: $small;
@@ -176,8 +176,8 @@ hr {
 .no-select {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
-    -moz-user-select: none;    
-    -ms-user-select: none;      
+    -moz-user-select: none;
+    -ms-user-select: none;
     user-select: none;
 }
 
@@ -198,11 +198,11 @@ hr {
 // }
 
 // Like display: none; but visible to screen readers
-// .visuallyhidden { 
-//     position: absolute; 
-//     overflow: hidden; 
-//     clip: rect(0 0 0 0); 
-//     height: 1px; width: 1px; 
+// .visuallyhidden {
+//     position: absolute;
+//     overflow: hidden;
+//     clip: rect(0 0 0 0);
+//     height: 1px; width: 1px;
 //     margin: -1px; padding: 0; border: 0;
 // }
 

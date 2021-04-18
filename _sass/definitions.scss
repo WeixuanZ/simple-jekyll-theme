@@ -35,8 +35,8 @@ $red              : rgb(255, 70, 66);
     --dark-shadow3       : rgba(0,0,0,0.1);
     --dark-frosted-glass : #22222280;
 
-    
-    #navbar{       
+
+    #navbar{
         @include frosted-glass;
     }
 }
