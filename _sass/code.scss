@@ -1,13 +1,12 @@
 code {
-    font-family: $font_code;
+    font-family: $font__family--code;
 
     // inline code
     margin: 1px;
     padding: 3px 6px;
     border-radius: 3px;
     font-size: 0.85em;
-    background-color: $gray_light;
-    background-color: var(--float-color, $gray_light);
+    @include dual-var(background-color, --color__gray-background--dark, $color__gray-background--light);
     // Allow line break anywhere for code surrounded by backticks in markdown
     &[class*="language-plaintext"] {
         overflow-wrap: break-word;
@@ -45,7 +44,7 @@ code {
     top: calc(min(100% - 36px, 12px));
     right: 2.5%;
 
-    @media only screen and (max-width: #{$desktop-min-width}) {
+    @media only screen and (max-width: #{$width__desktop--min}) {
         opacity: 1;
     }
 }
@@ -67,7 +66,7 @@ code {
 /* Adjusted to give override background and text colour */
 .highlight pre, pre, .highlight .hll {
     // background-color: #49483E;
-    background-color: #222;
+    background-color: #151516;
     border: none;
     // box-sizing: border-box;
     width: 95%;
@@ -75,8 +74,7 @@ code {
     padding: 6px 10px;
     border-radius: 10px;
     color: #fff;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-    box-shadow: 0 5px 20px var(--dark-shadow2, rgba(0,0,0,0.3));
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
     overflow: scroll;
     z-index: 2;
 

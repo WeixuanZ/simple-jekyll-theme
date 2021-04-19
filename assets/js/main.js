@@ -71,7 +71,7 @@ function updatePref(
   } else if ((currentPref() === 'light' || override) && newPref === 'dark') {
     if (withTransition) toggleTransition(els)
     root.classList.add('theme-dark')
-    navbar.style.background = '#121212'
+    navbar.style.background = '#000'
     updateCheckbox('dark')
     if (withTransition)
       setTimeout(() => {
@@ -101,12 +101,12 @@ function hideCheckbox() {
     if (this.scrollY >= nav_init) {
       navBtns.classList.add('transparent')
       if (currentPref() === 'dark') {
-        navbar.style.background = '#22222280'
+        navbar.style.background = '#151516cc'
       }
     } else {
       navBtns.classList.remove('transparent')
       if (currentPref() === 'dark') {
-        navbar.style.background = '#121212'
+        navbar.style.background = '#000'
       }
     }
   })
@@ -126,7 +126,7 @@ function syncBetweenTabs() {
 
 function listenToOS() {
   const mediaQueryList = window.matchMedia('(prefers-color-scheme: dark)')
-  mediaQueryList.addListener((m) => {
+  mediaQueryList.addEventListener('change', (m) => {
     if (m.matches !== true) {
       updatePref('light')
     } else {

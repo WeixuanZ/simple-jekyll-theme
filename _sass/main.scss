@@ -1,6 +1,6 @@
 // Universal
 
-.container{
+.container {
     width: 60%;
     margin: auto;
     overflow: visible;
@@ -11,42 +11,42 @@ html {
     scroll-behavior: smooth;
 }
 
-body{
-    font-family: $font_normal;
-    font-size: $normalsize;
+body {
+    font-family: $font__family--normal;
+    font-size: $font__size--normal;
     font-weight: 400;
     line-height: 1.6;
     margin: 0;
-    @include color(background-color, --background-color, $background_color);
-    @include color(color, --text-color, $text_color);
+    @include dual-var(background-color, --color__background--dark, $color__background--light);
+    @include dual-var(color, --color__text--dark, $color__text--light);
 }
 
-::selection{
-    color: $blue_hover
+::selection {
+    color: $color__primary--hover
 }
 
 .header {
-    font-size: $huge;
+    font-size: $font__size--header;
     font-weight: 700;
 }
 
-h1{
-    font-size: $LARGE;
+h1 {
+    font-size: $font__size--h1;
     font-weight: 700;
 }
 
-h2{
-    font-size: $Large;
+h2 {
+    font-size: $font__size--h2;
     font-weight: 600;
 }
 
-h3{
-    font-size: $large;
+h3 {
+    font-size: $font__size--h3;
     font-weight: 600;
 }
 
-h4{
-    font-size: $normalsize;
+h4 {
+    font-size: $font__size--normal;
     font-weight: 400;
 }
 
@@ -54,11 +54,11 @@ p {
     padding-bottom: 10px;
 }
 
-a{
-    @include color(color, --text-color, $text_color);
+a {
+    @include dual-var(color, --color__text--dark, $color__text--light);
 
-    &:hover{
-        color: $blue_hover;
+    &:hover {
+        color: $color__primary--hover;
     }
 }
 
@@ -91,14 +91,14 @@ figure > img {
     width: 60%;
     margin: auto;
     border-radius: 10px;
- }
+}
 
 figcaption {
-    @include color(color, --gray-text, $gray_text);
-    font-size: $small;
+    @include dual-var(color, --color__gray-text--dark, $color__gray-text--light);
+    font-size: $font__size--small;
     text-align: center;
     margin-top: 10px;
- }
+}
 
 table {
     margin: auto;
@@ -111,7 +111,7 @@ th, td {
 }
 
 tbody tr:hover {
-    @include color(background-color, --float-color, $gray_light);
+    @include dual-var(background-color, --color__gray-background--dark, $color__gray-background--light);
 }
 
 caption {
@@ -121,12 +121,12 @@ caption {
 hr {
     border: 0;
     height: 2px;
-    @include color(background-color, --gray-element, $gray_element);
+    @include dual-var(background-color, --color__gray-element--dark, $color__gray-element--light);
 }
 
 .footnotes {
     ol {
-        font-size: $footnotesize;
+        font-size: $font__size--footnote;
     }
 
     p {
@@ -136,28 +136,28 @@ hr {
 }
 
 .reversefootnote {
-    color: $blue;
+    color: $color__primary;
     text-decoration: none;
 
     &:hover {
-        color: $blue_hover;
+        color: $color__primary--hover;
     }
 }
 
 
-
 // Adjustment for anchor tag positioning with fixed header
 :target {
-    &[id^="fn"]{
+    &[id^="fn"] {
         padding-top: 65px;
         margin-top: -65px;
-        color: $blue;
+        color: $color__primary;
+
         a {
-            color: $blue;
+            color: $color__primary;
         }
     }
 
-    &:not(div):not([id^="fn"]):before{
+    &:not(div):not([id^="fn"]):before {
         content: "";
         display: block;
         padding-top: 65px;
@@ -166,10 +166,9 @@ hr {
 }
 
 
-
 // Helper classes
 
-.separator{
+.separator {
     margin-top: 60px;
 }
 
@@ -220,26 +219,26 @@ hr {
 // Indented boxes
 
 blockquote {
-    border-left-color: $gray_element;
-    @include indented-box(var(--gray-element, $gray_element));
+    border-left-color: $color__gray-element--light;
+    @include indented-box(var(--color__gray-element--dark, $color__gray-element--light));
+
     p {
         padding-bottom: 0;
     }
 
     &:not([class]) {
-        @include color(color, --gray-text, $gray_text);
+        @include dual-var(color, --color__gray-text--dark, $color__gray-text--light);
         @include gray-link;
     }
 }
 
 .hint {
-    border-left-color: $blue;
+    border-left-color: $color__blue;
 }
 
 .danger {
-    border-left-color: $red;
+    border-left-color: $color__red;
 }
-
 
 
 // Main Header
@@ -249,21 +248,20 @@ blockquote {
     padding-bottom: 10px;
     cursor: default;
 
-    a{
+    a {
         text-decoration: none;
         font-family: 'Black Ops One', 'Source Code Pro', sans-serif;
-        font-size: $Huge;
+        font-size: $font__size--main-header;
         margin: 0;
-        @include color(color, --text-color, $text_color);
+        @include dual-var(color, --color__text--dark, $color__text--light);
     }
 }
 
 
-
 // Navigation
 
-#navbar{
-    @include color(background-color, --background-color, $background_color);
+#navbar {
+    @include dual-var(background-color, --color__background--dark, $color__background--light);
     width: 100%;
     padding: 15px 0;
     z-index: 10;
@@ -283,32 +281,31 @@ blockquote {
     position: sticky;
     top: 0;
     box-shadow: 0 12px 12px -12px rgba(0, 0, 0, 0.5);
-    box-shadow: 0 12px 12px -12px var(--dark-shadow1, rgba(0, 0, 0, 0.5));
 }
 
 #nav-links {
     overflow: scroll;
 
-    a{
-        color: $blue;
+    a {
+        color: $color__primary;
         text-decoration: none;
         font-weight: 600;
         border-radius: 5px;
         border: none;
-        padding: 0px 6px;
+        padding: 0 6px;
         margin-right: 10px;
         transition: background-color 0.3s ease-in;
         display: inline-block;
     }
 
-    a:not(.current):hover{
+    a:not(.current):hover {
         color: #fff;
-        background-color: $blue_hover;
+        background-color: $color__primary--hover;
     }
 
-    .current{
+    .current {
         color: #fff;
-        background-color: $blue;
+        background-color: $color__primary;
         cursor: default;
     }
 }
@@ -346,15 +343,14 @@ blockquote {
 }
 
 
-
 // Footer
 
-#main-footer{
-    @include color(color, --gray-text, $gray_text);
+#main-footer {
+    @include dual-var(color, --color__gray-text--dark, $color__gray-text--light);
     @include gray-link;
     margin-top: 60px;
     padding-bottom: 60px;
-    font-size: $footnotesize;
+    font-size: $font__size--footnote;
     font-weight: 300;
 
     i, .icon {
@@ -362,15 +358,14 @@ blockquote {
     }
 }
 
-#copyleft{
+#copyleft {
     transition: opacity 0.15s;
 }
 
-#key:hover:after{
+#key:hover:after {
     display: inline-block;
     content: attr(aria-label);
 }
-
 
 
 // Icons if not using Font Awesome Kit

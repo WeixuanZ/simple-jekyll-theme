@@ -6,7 +6,7 @@
     }
     #main-header {
         a {
-            font-size: $huge;
+            font-size: $font__size--header;
         }
     }
     figure > img {
@@ -24,7 +24,7 @@
         }
     }
     .header {
-        font-size: $LARGE;
+        font-size: $font__size--h1;
     }
     figure > img {
         width: 95%;
@@ -34,14 +34,15 @@
     }
     // https://stackoverflow.com/questions/5303263/fix-font-size-issue-on-mobile-safari-iphone-where-text-is-rendered-inconsisten
     td {
-        -webkit-text-size-adjust:100%;
+        -webkit-text-size-adjust: 100%;
     }
-    #blog-list a .card{
+    #blog-list a .card {
         @include float-card;
         padding-top: 10px;
         padding-bottom: 10px;
+
         .post-title {
-            font-size: $large;
+            font-size: $font__size--h3;
             font-weight: 600;
         }
     }

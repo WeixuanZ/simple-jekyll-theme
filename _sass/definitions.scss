@@ -1,21 +1,25 @@
 // Colours
 
-// Light theme colors
-$background_color : #fff;
-$text_color       : #222;
-$blue             : #2a76dd;
-$blue_hover       : #6ca0e8;
-$gray_text        : rgb(116, 129, 141);
-$gray_element     : rgb(230, 236, 241);
-$gray_light       : rgb(245, 247, 249);
-$red              : rgb(255, 70, 66);
+$color__blue: #2a76dd;
+$color__light-blue: #6ca0e8;
+$color__red: #ff4642;
 
-@mixin color($property, $var, $fallback){
-    #{$property}: $fallback;  // This is a fallback for browsers that don't support the next line.
+$color__primary: $color__blue;
+$color__primary--hover: $color__light-blue;
+
+// Light theme colors
+$color__background--light: #fff;
+$color__text--light: #222;
+$color__gray-text--light: #74818d;
+$color__gray-element--light: #e6ecf1;
+$color__gray-background--light: #f5f7f9;
+
+@mixin dual-var($property, $var, $fallback) {
+    #{$property}: $fallback; // This is a fallback for browsers that don't support the next line.
     #{$property}: var($var, $fallback);
 }
 
-@mixin frosted-glass{
+@mixin frosted-glass {
     @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
         -webkit-backdrop-filter: saturate(180%) blur(20px) brightness(150%);
         backdrop-filter: saturate(180%) blur(20px) brightness(150%);
@@ -24,19 +28,14 @@ $red              : rgb(255, 70, 66);
 }
 
 // Dark theme colors
-.theme-dark{
-    --background-color   : #121212;
-    --text-color         : rgba(255, 255, 255, 0.87);
-    --gray-element       : rgba(255, 255, 255, 0.38);
-    --gray-text          : rgba(255, 255, 255, 0.6);
-    --float-color        : #222;
-    --dark-shadow1       : #000;
-    --dark-shadow2       : rgba(0,0,0,0.5);
-    --dark-shadow3       : rgba(0,0,0,0.1);
-    --dark-frosted-glass : #22222280;
+.theme-dark {
+    --color__background--dark: #000;
+    --color__text--dark: #f5f5f6;
+    --color__gray-text--dark: #a1a1a5;
+    --color__gray-element--dark: #424245;
+    --color__gray-background--dark: #151516;
 
-
-    #navbar{
+    #navbar {
         @include frosted-glass;
     }
 }
@@ -47,34 +46,17 @@ $red              : rgb(255, 70, 66);
 
 
 // Fonts
+$font__family--normal: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+$font__family--code: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
 
-$font_normal      : -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
-$font_code        : SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
-
-// Font Sizes
-
-$Huge             : 32pt;  // main-header
-$huge             : 27pt;  // header
-$LARGE            : 22pt;  // h1
-$Large            : 18pt;  // h2
-$large            : 16pt;  // h3
-
-$normalsize       : 14pt;
-
-$small            : 13pt;
-$footnotesize     : 12pt;
-
-// $Huge             : 2.7rem;  // main-header
-// $huge             : 2.2rem;  // header
-// $LARGE            : 2rem;  // h1
-// $Large            : 1.7rem;  // h2
-// $large            : 1.5rem;  // h3
-
-// $normalsize       : 1.1rem;
-
-// $small            : 1rem;
-// $footnotesize     : 0.9rem;
-
+$font__size--main-header: 32pt;
+$font__size--header: 27pt;
+$font__size--h1: 22pt;
+$font__size--h2: 18pt;
+$font__size--h3: 16pt;
+$font__size--normal: 14pt;
+$font__size--small: 13pt;
+$font__size--footnote: 12pt;
 
 
 @mixin indented-box($side-color) {
@@ -86,37 +68,36 @@ $footnotesize     : 12pt;
 @mixin float-card {
     z-index: 2;
     border-radius: 10px;
-    border-width: 0px;
+    border-width: 0;
     margin: 10px 0;
-    box-shadow: 9px 9px 16px rgba(0,0,0,0.1), -9px -9px 16px rgba(0,0,0,0.01);
-    box-shadow: 9px 9px 16px var(--dark-shadow2, rgba(0,0,0,0.1)), -9px -9px 16px var(--dark-shadow3, rgba(0,0,0,0.01));
-    @include color(background-color, --float-color, #fff);
+    box-shadow: 9px 9px 16px rgba(0, 0, 0, 0.1), -9px -9px 16px rgba(0, 0, 0, 0.01);
+    @include dual-var(background-color, --color__gray-background--dark, #fff);
 }
 
 @mixin gray-link {
     a {
-        @include color(color, --gray-text, $gray_text);
+        @include dual-var(color, --color__gray-text--dark, $color__gray-text--light);
         @content;
 
         &:hover {
-            color: $blue_hover;
+            color: $color__primary--hover;
         }
     }
 }
 
 
 // Break Points
-$desktop-min-width: 1000px;
-$phone-max-width: 500px;
+$width__desktop--min: 1000px;
+$width__phone--max: 500px;
 
 @mixin tablet {
-    @media only screen and (min-width: #{$phone-max-width}) and (max-width: #{$desktop-min-width}) {
+    @media only screen and (min-width: #{$width__phone--max}) and (max-width: #{$width__desktop--min}) {
         @content;
     }
 }
 
 @mixin phone {
-    @media only screen and (max-width: #{$phone-max-width}) {
+    @media only screen and (max-width: #{$width__phone--max}) {
         @content;
     }
 }

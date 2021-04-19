@@ -3,8 +3,8 @@
 @mixin blog-critical{
 
 .post-meta, .page-meta  {
-    @include color(color, --gray-text, $gray_text);
-    font-size: $small;
+    @include dual-var(color, --color__gray-text--dark, $color__gray-text--light);
+    font-size: $font__size--small;
 }
 
 .date{
@@ -40,15 +40,15 @@
             margin: 10px auto;
         }
         .post-meta{
-            font-size: $footnotesize;
+            font-size: $font__size--footnote;
         }
         .post-title {
-            color: $blue;
-            font-size: $Large;
+            color: $color__primary;
+            font-size: $font__size--h2;
             font-weight: 700;
         }
         .post-description {
-            font-size: $small
+            font-size: $font__size--small
         }
     }
 
@@ -61,7 +61,7 @@
             transition: 0.3s;
         }
         .post-title{
-            color: $blue_hover;
+            color: $color__primary--hover;
         }
     }
 
@@ -79,8 +79,8 @@
     padding: 20px 0;
     margin: 10px auto;
     width: 100%;
-    color: $blue;
-    font-size: $large;
+    color: $color__primary;
+    font-size: $font__size--h3;
     font-weight: 600;
     background: none;
     border: none;
@@ -101,7 +101,7 @@
         position: fixed;
         right: 2%;
         top: 100px;
-        font-size: $footnotesize;
+        font-size: $font__size--footnote;
         @include float-card;
         padding: 15px;
         overflow-y: scroll;
@@ -115,7 +115,7 @@
             width: calc(100%);
         }
         h2 {
-            font-size: $normalsize;
+            font-size: $font__size--normal;
         }
         ul {
             padding-left: 20px;
@@ -124,7 +124,7 @@
     }
 
     .active {
-        color: $blue;
+        color: $color__primary;
     }
 }
 
@@ -166,7 +166,7 @@ iframe {
         margin-bottom: 15px;
         transition: 0.3s;
         cursor: pointer;
-        color: $blue_hover;
+        color: $color__primary--hover;
     }
 
     &:active {
@@ -176,8 +176,7 @@ iframe {
     }
 
     &:disabled {
-        color: $gray_text;
-        @include color(color, --gray-text, $gray_text);
+        @include dual-var(color, --color__gray-text--dark, $color__gray-text--light);
     }
 }
 
@@ -190,8 +189,8 @@ iframe {
     border-radius: 50%;
     border: none;
     color: #fff;
-    background-color: $blue;
-    box-shadow: 0 0 10px $blue_hover;
+    background-color: $color__primary;
+    box-shadow: 0 0 10px $color__primary--hover;
     z-index: 10;
 
     i, .icon {
@@ -203,7 +202,7 @@ iframe {
     }
 
     &:hover{
-        background-color: $blue_hover;
+        background-color: $color__primary--hover;
         cursor: pointer;
     }
 
@@ -214,15 +213,15 @@ iframe {
     @include phone {
         right: 30px;
         &:hover{
-            background-color: $blue;
+            background-color: $color__primary;
         }
     }
 }
 
 .shared:before {
     content: attr(fallback-text);
-    color: $blue;
-    font-size: $footnotesize;
+    color: $color__primary;
+    font-size: $font__size--footnote;
     font-weight: 600;
     display: inline-block;
     width: 100px;
@@ -235,8 +234,7 @@ iframe {
     opacity: 0;
     transition: opacity 0.3s;
     border-radius: 5px;
-    @include color(background-color, --dark-frosted-glass, rgba(245, 247, 249, 0.5));
-    @include frosted-glass;
+    @include dual-var(background-color, --color__gray-backround--dark, #{$color__gray-background--light}80);
 }
 
 .shared:hover:before {
