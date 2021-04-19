@@ -56,7 +56,7 @@ This repository is a clone of that for my website, with commits not related to t
 ## Installation
 
 > If you are hosting your site on GitHub Pages, fork this repository and follow the [Development](#development) setup **instead**, and rename it to `<username>.github.io`.
-> 
+>
 > Alternatively, you can use `remote_theme: weixuanz/simple-jekyll-theme` by including a whitelisted gem called _jekyll-remote-theme_ in your `_config.yml`, [more details here](https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/adding-a-theme-to-your-github-pages-site-using-jekyll#adding-a-jekyll-theme-in-your-sites-_configyml-file). Note that you will need to include the default `_config.yml` **entriely**, since no configuration will be copied.
 
 If you are not using GitHub pages, follow along. Add this line to your Jekyll site's `Gemfile`:
@@ -182,7 +182,7 @@ mathjax: true
 A rather unfortunate result of supporting GitHub Pages is that the fantastic Jekyll tag gems cannot be used. I wrote a Python script `./scripts/tag_generator.py` based on [Long Qian's fantastic solution](https://longqian.me/2017/02/09/github-jekyll-tag/). You will need to download it separately if you are using the gem approach, perhaps using:
 
 ```bash
-wget https://raw.githubusercontent.com/WeixuanZ/simple-jekyll-theme/master/tag_generator.py
+wget https://raw.githubusercontent.com/WeixuanZ/simple-jekyll-theme/master/scripts/tag_generator.py
 ```
 
 You can use the provided `./scripts/pre-commit` git hook for automatic execution, or use `yarn run tag` if you cloned this repository.
